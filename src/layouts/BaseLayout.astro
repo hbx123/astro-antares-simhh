@@ -29,11 +29,11 @@ const {
   <HeadFragment {title} {description} {image}/>
   <slot name="head"/>
 </head>
-<body class="flex flex-col bg-global text-textPrim font-sans h-screen">
-  <header class="h-60px">
+<body class="flex flex-col bg-global text-textPrim font-sans h-screen w-screen of-x-hidden max-w[calc(100vw-12px)]">
+  <header class="wfull h15 min-h15">
     <NavBar/>
   </header>
-  <main class="flex-1 w-screen max-w-screen-xl mx-auto my8 flex">
+  <main class="wfull flex-1 max-w-screen-xl mx-auto my8 flex">
     <If condition={asideOff}>
       <div class="wfull animate-move-up">
         <slot/>
@@ -48,7 +48,7 @@ const {
       </div>
     </If>
   </main>
-  <footer class="bg-normal shadow-md py8 text-center">
+  <footer class="wfull bg-normal shadow-md py8 text-center">
     <FooterFragment/>
   </footer>
 </body>
