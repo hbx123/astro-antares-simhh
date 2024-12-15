@@ -1,0 +1,31 @@
+---
+import PageLayout from "@/layouts/PageLayout.astro";
+import CardInfo from '@/components/AsideCards/CardInfo.astro'
+---
+
+<PageLayout title="Error: 404">
+  <aside slot="aside">
+    <CardInfo/>
+  </aside>
+  <h1 class="font-700 text-8xl mt-16 mb-16">Oops!</h1>
+  <div class="flex">
+    <div class="flex-1">
+      <h2 class="text-xl">这里似乎没有你要找的页面 :(</h2>
+      <h2 class="font-600 mt-4 mb-4 text-sm">Code: 404 PAGE_NOT_FOUND</h2>
+      <h2 class="mb-2">返回 <a href="javascript:window.history.back()">刚才的页面</a></h2>
+      <h2 class="mb-2">尝试 <a href="/search">进行搜索</a></h2>
+      <h2 class="mb-1">或者 下面是一些有用的链接：</h2>
+      <ul class="list-circle-inside">
+        <li>主页 - <a href="/">/</a></li>
+        <li>归档 - <a href="/archives">/archives</a></li>
+        <li>分类 - <a href="/categories">/categories</a></li>
+        <li>标签 - <a href="/tags">/tags</a></li>
+        <li>关于 - <a href="/about">/about</a></li>
+      </ul>
+    </div>
+    <div class="flex flex-col">
+      <div class="flex-1"></div>
+      <img class="w-30 h-30" src="/images/theresa_QvQ.png"/>
+    </div>
+  </div>
+</PageLayout>
