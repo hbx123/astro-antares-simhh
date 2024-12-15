@@ -29,11 +29,11 @@ const {
   <HeadFragment {title} {description} {image}/>
   <slot name="head"/>
 </head>
-<body class="bg-global text-textPrim">
-  <header>
+<body class="flex flex-col bg-global text-textPrim font-sans h-screen">
+  <header class="h-60px">
     <NavBar/>
   </header>
-  <main>
+  <main class="flex-1 w-screen max-w-screen-xl mx-auto">
     <If condition={asideOff}>
       <slot/>
     </If>
@@ -46,7 +46,7 @@ const {
       </div>
     </If>
   </main>
-  <footer>
+  <footer class="bg-normal shadow-md py8 text-center">
     <FooterFragment/>
   </footer>
 </body>

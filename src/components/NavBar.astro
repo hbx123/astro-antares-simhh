@@ -1,10 +1,35 @@
 ---
-import { SITE_INFO } from '@/config'
-const { title } = SITE_INFO
+import { Icon } from 'astro-icon/components'
+import { SITE_INFO, NAV_ITEMS } from '@/config'
+import { titleColor2styleVars } from '@/utils'
 ---
 
-<nav>
-  <div>
-    <h1><a href="/">{title}</a></h1>
+<nav class="hfull bg-normal shadow-md flex">
+  <div class="wfull max-w-screen-2xl m-auto flex px3">
+    <div class="flex-1">
+      <h1 class="text-xl font-bold">
+        <a class="gc-text" style={titleColor2styleVars('#0ed2f7,#024bc0|#024bc0,#0ed2f7')} href="/">{SITE_INFO.title}</a>
+      </h1>
+    </div>
+    <div class="flex space-x-4">
+      {NAV_ITEMS.map(navItem =>(
+        <div class="group pos-relative">
+          <a class="flex items-center" href={navItem.href}>
+            <Icon class="text-xl mr1" name={navItem.icon}/>
+            <span>{navItem.text}</span>
+          </a>
+          {!navItem.children?'':
+          <div class="hidden group-hover:block pos-absolute h3 wfull"></div>
+          <div class="hidden group-hover:block pos-absolute mt3 -mr2 pos-right-0 rounded-sm w-[max-content] shadow-[0_5px_15px_-4px_#00000080] animate-move-up-sm">
+            {navItem.children.map(navItemChild=>(
+              <a class="flex py3 px4 items-center bg-normal hover:bg-global" href={navItemChild.href}>
+                <Icon class="text-xl mr1" name={navItemChild.icon}/>
+                <span class="flex">{navItemChild.text}</span>
+              </a>
+            ))}
+          </div>}
+        </div>
+      ))}
+    </div>
   </div>
 </nav>
