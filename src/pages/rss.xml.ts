@@ -5,7 +5,7 @@ import { SITE_INFO } from '@/config'
 import { markdown2html } from '@/utils/markdown'
 
 export const GET = async (context: APIContext) => {
-  return rss({
+  const resp = await rss({
     title: SITE_INFO.title,
     description: SITE_INFO.description,
     site: context.site!,
@@ -21,4 +21,5 @@ export const GET = async (context: APIContext) => {
       }))
     ),
   })
+  return new Response(resp.body, { headers: {'Content-Type': 'application/xml'} })
 }
