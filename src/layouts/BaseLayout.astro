@@ -1,0 +1,53 @@
+---
+import '@/styles/global.scss'
+import HeadFragment from '@/components/fragment/HeadFragment.astro'
+import FooterFragment from '@/components/fragment/FooterFragment.astro'
+import If from '@/components/atomic/If.astro'
+import NavBar from '@/components/NavBar.astro'
+import { SITE_INFO } from '@/config'
+const { language: lang, title: deafultTitle } = SITE_INFO
+
+interface Props {
+  subtitle?: string
+  title?: string
+  description?: string
+  image?: string
+  asideOff?: boolean
+}
+const {
+  subtitle,
+  title = subtitle ? `${subtitle} | ${deafultTitle}` : deafultTitle,
+  description = '',
+  image = '',
+  asideOff = false,
+} = Astro.props
+---
+
+<!DOCTYPE html>
+<html {lang}>
+<head>
+  <HeadFragment {title} {description} {image}/>
+  <slot name="head"/>
+</head>
+<body class="bg-global text-textPrim">
+  <header>
+    <NavBar/>
+  </header>
+  <main>
+    <If condition={asideOff}>
+      <slot/>
+    </If>
+    <If condition={!asideOff}>
+      <div>
+        <slot name="aside"/>
+      </div>
+      <div>
+        <slot/>
+      </div>
+    </If>
+  </main>
+  <footer>
+    <FooterFragment/>
+  </footer>
+</body>
+</html>
