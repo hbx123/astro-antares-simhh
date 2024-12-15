@@ -1,8 +1,10 @@
 ---
+import CardInfo from '@/components/AsideCards/CardInfo.astro'
 import BaseLayout from '@/layouts/BaseLayout.astro'
-import posts from '@/content/posts'
 ---
 
 <BaseLayout>
-  {posts}
+  <aside slot="aside">
+    <CardInfo/>
+  </aside>
 </BaseLayout>

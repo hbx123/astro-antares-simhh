@@ -1,0 +1,21 @@
+---
+import If from '@/components/atomic/If.astro'
+
+interface Props {
+  title?: string,
+  class?: string,
+}
+
+const { props } = Astro
+---
+
+<div class="card p4 mb4" class:list={props.class}>
+  <If condition={props.title}>
+    <h1 class="flex items-center lh-loose text-lg">
+      <span class="mr2"><slot name="icon"></slot></span>
+      <span class="wfull">{props.title}</span>
+      <slot name="extra"></slot>
+    </h1>
+  </If>
+  <slot></slot>
+</div>

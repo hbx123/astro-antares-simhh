@@ -7,7 +7,7 @@ const SITE_INFO = {
   startYear: 2024,
   endYear: new Date().getFullYear(),
   email: 'coderxi@qq.com',
-  baseUrl: BASE_URL,
+  baseUrl: BASE_URL + '/',
   avatarUrl: BASE_URL + '/avatar.png',
 }
 const DEFAULT_FRONTMATTER = {
@@ -16,7 +16,17 @@ const DEFAULT_FRONTMATTER = {
   description: '暂无描述.',
   categories: ['未分类'],
 }
-
+const ASIDE_CARDS = {
+  info: {
+    name: "Antares By 汐涌及岸",
+    link: '/',
+    avatar: '/avatar.png',
+    descriptionLines: [
+      "There is Antares",
+      "A blog template based on Astro",
+    ]
+  }
+}
 const NAV_ITEMS = [
   {
     icon: "mdi:home",
@@ -134,4 +144,4 @@ function dependencies() { return packageJson.dependencies }
 import type { Format } from 'badge-maker'
 import moment from 'moment'
 moment.locale(SITE_INFO.language)
-export { BASE_URL, SITE_INFO, DEFAULT_FRONTMATTER, NAV_ITEMS, FOOTER }
+export { BASE_URL, SITE_INFO, DEFAULT_FRONTMATTER, NAV_ITEMS, FOOTER, ASIDE_CARDS }

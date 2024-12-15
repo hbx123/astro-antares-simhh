@@ -33,15 +33,17 @@ const {
   <header class="h-60px">
     <NavBar/>
   </header>
-  <main class="flex-1 w-screen max-w-screen-xl mx-auto">
+  <main class="flex-1 w-screen max-w-screen-xl mx-auto my8 flex">
     <If condition={asideOff}>
-      <slot/>
+      <div class="wfull animate-move-up">
+        <slot/>
+      </div>
     </If>
     <If condition={!asideOff}>
-      <div>
+      <div class="wfull max-w28% mr2">
         <slot name="aside"/>
       </div>
-      <div>
+      <div class="wfull max-w72% animate-move-up">
         <slot/>
       </div>
     </If>

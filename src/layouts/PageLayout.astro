@@ -1,0 +1,26 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import TitleHuge from '@/components/widget/TitleHuge.astro'
+interface Props {
+  title: string
+  titleIcon?: string
+  titleColor?: string
+  titleShow?: boolean
+  titleIconOff?: boolean
+  asideOff?: boolean
+}
+
+const { asideOff, title, titleIcon, titleColor, titleShow, titleIconOff } = Astro.props
+---
+
+<BaseLayout subtitle={title} description={title} {asideOff}>
+
+  <Fragment slot="aside"><slot name="aside"/></Fragment>
+  
+  <div class="card wfull p8 lg:p13">
+    <TitleHuge {title} {titleIcon} {titleColor} {titleShow} {titleIconOff}/>
+    <slot></slot>
+  </div>
+  <slot name="after"></slot>
+  
+</BaseLayout>

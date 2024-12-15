@@ -1,14 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components'
 import { SITE_INFO, NAV_ITEMS } from '@/config'
-import { titleColor2styleVars } from '@/utils'
+import { titleColor2gcTextstyleVars } from '@/utils'
 ---
 
 <nav class="hfull bg-normal shadow-md flex">
   <div class="wfull max-w-screen-2xl m-auto flex px3">
     <div class="flex-1">
       <h1 class="text-xl font-bold">
-        <a class="gc-text" style={titleColor2styleVars('#0ed2f7,#024bc0|#024bc0,#0ed2f7')} href="/">{SITE_INFO.title}</a>
+        <a class="gc-text" style={titleColor2gcTextstyleVars('#0ed2f7,#024bc0|#024bc0,#0ed2f7')} href="/">{SITE_INFO.title}</a>
       </h1>
     </div>
     <div class="flex space-x-4">
