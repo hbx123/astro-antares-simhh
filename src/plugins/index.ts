@@ -12,11 +12,11 @@ type RemarkPlugin<T extends Record<string, any> = Record<string, never>> = (...a
 import type { RehypePlugin } from '@astrojs/markdown-remark';
 
 // Export values
-import * as _remarkPlugins from './remarkPlugins'
-const remarkPlugins = Object.values(_remarkPlugins)! as _RemarkPlugin[]
+import _remarkPlugins from './remarkPlugins'
+const remarkPlugins = _remarkPlugins as _RemarkPlugin[]
 
-import * as _rehypePlugins from './rehypePlugins'
-const rehypePlugins = Object.values(_rehypePlugins)! as RehypePlugin[]
+import _rehypePlugins from './rehypePlugins'
+const rehypePlugins = _rehypePlugins as RehypePlugin[]
 
 // Export
 export {

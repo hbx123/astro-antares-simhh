@@ -1,7 +1,7 @@
 import type { RehypePlugin } from '.'
 import { visit } from 'unist-util-visit'
 
-export const rehypeImageLazyLoad: RehypePlugin = () => {
+const rehypeImageLazyLoad: RehypePlugin = () => {
   return (tree) => {
     visit(tree, (node) => {
       if (node.type == 'element' && node.tagName == 'img') {
@@ -12,3 +12,7 @@ export const rehypeImageLazyLoad: RehypePlugin = () => {
     })
   }
 }
+
+export default [
+  rehypeImageLazyLoad
+]
