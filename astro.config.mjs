@@ -4,7 +4,6 @@ import sitemap from '@astrojs/sitemap';
 import unocss from 'unocss/astro'
 import icon from "astro-icon";
 import { BASE_URL } from './src/config'
-import remarkDirective from 'remark-directive'
 import { remarkPlugins, rehypePlugins } from './src/plugins';
 
 // https://astro.build/config
@@ -17,12 +16,7 @@ export default defineConfig({
     icon()
   ],
   markdown: {
-    remarkPlugins: [
-      remarkDirective,
-      ...remarkPlugins
-    ],
-    rehypePlugins: [
-      ...rehypePlugins
-    ]
+    remarkPlugins,
+    rehypePlugins
   }
 });

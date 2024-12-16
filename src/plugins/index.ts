@@ -13,10 +13,10 @@ import type { RehypePlugin } from '@astrojs/markdown-remark';
 
 // Export values
 import * as _remarkPlugins from './remarkPlugins'
-const remarkPlugins = Object.values(_remarkPlugins)
+const remarkPlugins = Object.values(_remarkPlugins)! as _RemarkPlugin[]
 
 import * as _rehypePlugins from './rehypePlugins'
-const rehypePlugins = Object.values(_rehypePlugins)
+const rehypePlugins = Object.values(_rehypePlugins)! as RehypePlugin[]
 
 // Export
 export {

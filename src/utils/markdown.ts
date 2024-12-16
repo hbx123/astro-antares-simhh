@@ -1,10 +1,10 @@
 import sanitizeHtml from 'sanitize-html'
-import astroConfig from 'astro.config.mjs'
+import { remarkPlugins } from '@/plugins';
 import { createMarkdownProcessor } from '@astrojs/markdown-remark'
 
 const processor = await createMarkdownProcessor({
   syntaxHighlight: false,
-  remarkPlugins: astroConfig.markdown?.remarkPlugins,
+  remarkPlugins,
 })
 
 export const markdown2html = async (markdown: string) => {

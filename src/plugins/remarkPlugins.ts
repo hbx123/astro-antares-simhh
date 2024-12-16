@@ -2,6 +2,11 @@
 /// <reference types="mdast-util-directive" />
 import type { RemarkPlugin } from '.'
 import { visit } from 'unist-util-visit'
+import remarkDirective from 'remark-directive'
+
+export {
+  remarkDirective
+}
 
 export const remarkDirectivePostComponents: RemarkPlugin = () => (tree, _) => {
   visit(tree, (node) => {
