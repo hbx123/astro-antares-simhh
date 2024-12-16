@@ -9,6 +9,7 @@ const lightTheme: Theme = {
     normal: '#ffffff',
     textPrim: '#4c4948',
     textDesc: '#858585',
+    linePrim: '#ccc',
   },
 }
 
@@ -18,6 +19,7 @@ const darkTheme: Theme = {
     normal: '#1e1e1f',
     textPrim: '#c9c9d7',
     textDesc: '#777777',
+    linePrim: '#404040',
   }
 }
 

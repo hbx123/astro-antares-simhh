@@ -4,7 +4,7 @@ import { SITE_INFO, NAV_ITEMS } from '@/config'
 import { titleColor2gcTextstyleVars } from '@/utils'
 ---
 
-<nav class="wfull hfull bg-normal shadow-md flex">
+<nav id="nav" class="wfull hfull bg-normal shadow-md flex opacity-90">
   <div class="wfull max-w-screen-2xl m-auto flex px3">
     <div class="flex-1">
       <h1 class="text-xl font-bold">
@@ -33,3 +33,25 @@ import { titleColor2gcTextstyleVars } from '@/utils'
     </div>
   </div>
 </nav>
+
+<script>
+  const nav = document.querySelector<HTMLElement>("#nav")!;
+  let lastScrollTop = window.scrollY;
+  let isThrottled = false;
+  nav.style.transform = window.scrollY != 0 ? "translateY(-100%)" : "translateY(0)";
+  document.addEventListener("DOMContentLoaded",()=>{
+    nav.style.transitionDuration = "500ms"
+    setTimeout(() => { nav.style.transform = 'translateY(0)' }, 500);
+  })
+
+  window.addEventListener("scroll", () => {
+    if (isThrottled) return;
+    const currentScrollTop = window.scrollY;
+    const isScrollingDown = currentScrollTop > lastScrollTop;
+    nav.style.transform = isScrollingDown ? "translateY(-100%)" : "translateY(0)";
+    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+    isThrottled = true;
+    setTimeout(() => { isThrottled = false }, 100);
+  });
+</script>
+
