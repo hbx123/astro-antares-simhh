@@ -22,7 +22,7 @@ const postBodyHtml = showBody? (await markdown2html(post.body!)) : ''
     <span class="w-8 h-8 min-w-8 min-h-8 max-w-8 max-h-8 mr-1">
       <TitleIcon {...ensureTitleIcon(post.data.titleIcon)}/>
     </span>
-    <a class="gc-text" href={'/posts/'+post.id}>{post.data.title}<slot name="title-after"></slot></a>
+    <a class="gc-text" href={'/posts/'+post.id}>{post.data.title}</a>
     <span class="gc-text w-1em opacity-0 group-hover:opacity-100">」</span>
   </h1>
   <div class="pt-3 pb-4"><PostMeta post={post}/></div>
@@ -38,6 +38,7 @@ const postBodyHtml = showBody? (await markdown2html(post.body!)) : ''
     </If>
   </div>
   <div class="font-mono">
+    <slot name="tag-start"></slot>
     {post.data.tags?.map(tag=>(<a class="btn-sm mr1" href={'/tags/'+tag}>{tag}</a> ))}
   </div>
 </div>

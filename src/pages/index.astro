@@ -28,7 +28,7 @@ A blog template based on Astro
   <If condition={posts.length > 0}>
     <div class="mb5">
       <PostCard post={posts[0]} showBody>
-        <span class="ml2 btn-sm text-textPrim" slot="title-after">最新文章</span>
+        <a class="ml2 btn-sm text-red fw-bold font-sans" href="/posts" slot="tag-start">最新文章</a>
       </PostCard>
     </div>
   </If>

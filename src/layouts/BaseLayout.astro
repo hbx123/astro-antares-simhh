@@ -41,7 +41,9 @@ const {
     </If>
     <If condition={!asideOff}>
       <div class="wfull max-w28% mr2">
-        <slot name="aside"/>
+        <div class="sticky top-4">
+          <slot name="aside"/>
+        </div>
       </div>
       <div class="wfull max-w72% animate-move-up">
         <slot/>
