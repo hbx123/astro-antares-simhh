@@ -1,0 +1,36 @@
+---
+import type { Post } from "@/content/posts";
+import { ensureTitleIcon, titleColor2gcTextstyleVars } from '@/utils'
+import TitleIcon from "./widget/TitleIcon.astro";
+import If from "./atomic/If.astro";
+import Markdown from "./atomic/Markdown.astro";
+import { markdown2html } from "@/utils/markdown";
+import PostMeta from "./PostMeta.astro";
+interface Props {
+  post: Post,
+  showBody?: boolean
+}
+
+const { post, showBody } = Astro.props
+
+const postBodyHtml = showBody? (await markdown2html(post.body!)) : ''
+---
+
+<div class="cursor-pointer-important" onclick={`location.href="${'/posts/'+post.id}"`}>
+  <h1 class="text-[1.2rem] fw-bold flex items-center" style={titleColor2gcTextstyleVars(post.data.titleColor)}>
+    <span class="w1.2rem h1.2rem"><TitleIcon {...ensureTitleIcon(post.data.titleIcon)}/></span>
+    <a class="gc-text" href={'/posts/'+post.id}>{post.data.title}</a>
+  </h1>
+  <div class="ml0.6rem my2"><PostMeta post={post}/></div>
+  <div class="ml1.2rem my3 text-sm" set:html={post.data.description}></div>
+  <If condition={showBody}>
+    <a class="ml1.2rem my1 block wfull" href={'/posts/'+post.id}>
+      <div class="wfull text-sm max-h-20em overflow-y-auto overflow-x-hidden">
+        <Markdown contentStyle="mini" set:html={postBodyHtml}></Markdown>
+      </div>
+    </a>
+  </If>
+  <div class="ml0.6rem font-mono">
+    {post.data.tags?.map(tag=>(<a class="btn-sm mr1" href={'/tags/'+tag}>{tag}</a> ))}
+  </div>
+</div>

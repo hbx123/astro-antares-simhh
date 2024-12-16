@@ -1,0 +1,43 @@
+---
+import type { Post } from "@/content/posts";
+import { ensureTitleIcon, titleColor2gcTextstyleVars } from '@/utils'
+import TitleIcon from "./widget/TitleIcon.astro";
+import If from "./atomic/If.astro";
+import Markdown from "./atomic/Markdown.astro";
+import { markdown2html } from "@/utils/markdown";
+import PostMeta from "./PostMeta.astro";
+interface Props {
+  post: Post,
+  showBody?: boolean
+}
+
+const { post, showBody } = Astro.props
+
+const postBodyHtml = showBody? (await markdown2html(post.body!)) : ''
+---
+
+<div class="card p10">
+  <h1 class="group text-2xl font-semibold flex items-center ml-[-1em]" style={titleColor2gcTextstyleVars(post.data.titleColor)}>
+    <span class="gc-text w-1em opacity-0 group-hover:opacity-100">「</span>
+    <span class="w-8 h-8 min-w-8 min-h-8 max-w-8 max-h-8 mr-1">
+      <TitleIcon {...ensureTitleIcon(post.data.titleIcon)}/>
+    </span>
+    <a class="gc-text" href={'/posts/'+post.id}>{post.data.title}<slot name="title-after"></slot></a>
+    <span class="gc-text w-1em opacity-0 group-hover:opacity-100">」</span>
+  </h1>
+  <div class="pt-3 pb-4"><PostMeta post={post}/></div>
+  <div class="min-h-5em p3">
+    <div class="text-sm my3" set:html={post.data.description}></div>
+    <If condition={showBody}>
+      <hr>
+      <a class="block wfull" href={'/posts/'+post.id}>
+        <div class="wfull text-sm mt3 mb8 max-h-20em overflow-y-auto overflow-x-hidden cursor-pointer-important" onclick={`location.href="${'/posts/'+post.id}"`}>
+          <Markdown contentStyle="mini" set:html={postBodyHtml}></Markdown>
+        </div>
+      </a>
+    </If>
+  </div>
+  <div class="font-mono">
+    {post.data.tags?.map(tag=>(<a class="btn-sm mr1" href={'/tags/'+tag}>{tag}</a> ))}
+  </div>
+</div>

@@ -54,5 +54,6 @@ export default defineConfig({
     'full': 'w-full h-full',
     'card': 'bg-normal rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-500',
     'gc-text': 'inline-block font-bold text-transparent bg-clip-text bgi-[var(--gc-text-bgimg)] dark:bgi-[var(--gc-text-bgimg-dark)]',
+    'btn-sm': 'inline-block text-xs lh-[1.2] p0.8 px3 bg-#eee hover:bg-gray-2 active:bg-gray-3 dark:bg-#303136 dark:hover:bg-dark-1 dark:active:bg-dark-2 rounded-full'
   },
 })

@@ -1,0 +1,31 @@
+---
+import { Icon } from "astro-icon/components";
+import type { Page } from "astro";
+import If from "./atomic/If.astro";
+
+type Props = {
+  page: Page;
+};
+
+const { page } = Astro.props;
+const pageNav = new Array(page.lastPage).fill(0).map((_,index)=> ({
+  num : index + 1 ,
+  url: "/" + (index == 0 ? '' : index + 1),
+}))
+---
+
+<nav class="flex justify-center mt6 mb6 text-lg" id="pagination">
+  <div class="flex space-x-2">
+    <If condition={page.url.prev}>
+      <a class="bg-normal w2em h2em inline-flex justify-center items-center rounded-md" href={page.url.prev}><Icon name="mdi:chevron-left"/></a>
+    </If>
+    {
+      pageNav.map(p=>(
+        <a class="bg-normal w2em h2em inline-flex justify-center items-center rounded-md" href={p.url} style={{backgroundColor:page.currentPage==p.num?'#7B9EB6':'',color:page.currentPage==p.num?'#fff':''}}>{p.num}</a>
+      ))
+    }
+    <If condition={page.url.next}>
+      <a class="bg-normal w2em h2em inline-flex justify-center items-center rounded-md" href={page.url.next}><Icon name="mdi:chevron-right"/></a>
+    </If>
+  </div>
+</nav>

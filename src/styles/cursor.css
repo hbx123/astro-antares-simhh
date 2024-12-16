@@ -30,3 +30,7 @@ input[type=button],
   cursor: var(--cursor-pointer), pointer;
 }
 
+.cursor-pointer-important,
+.cursor-pointer-important * {
+  cursor: var(--cursor-pointer), pointer !important;
+}

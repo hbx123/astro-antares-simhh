@@ -12,3 +12,13 @@
 ::-webkit-scrollbar-thumb:hover{
   background-color: rgba(104, 103, 103, 0.3);
 }
+
+hr {
+  width: 100%;
+  border: 0;
+  border-bottom: dotted 1px #ccc;
+}
+
+.dark hr {
+  border-bottom: dotted 1px #404040;
+}

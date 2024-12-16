@@ -1,24 +1,28 @@
 ---
-import '@/styles/markdown.scss'
+import '@/styles/markdown-standard.scss'
+import '@/styles/markdown-mini.scss'
 import { markdown2html } from '@/utils/markdown'
 import If from './If.astro'
 
 interface Props {
-  styleOff?: boolean
+  contentStyle?: 'standard'|'mini'|'off'
 }
 
-const { styleOff = false } = Astro.props
+const { contentStyle = 'standard' } = Astro.props
 
 //use in .astro file, is markdown
 //use in .mdx file, is rendered html
-const markdownOrhtml = (await Astro.slots.render('default')).trim()
+const markdownOrhtml = ((await Astro.slots.render('default'))||'').trim()
 const html = markdownOrhtml.startsWith('<') ? markdownOrhtml : (await markdown2html(markdownOrhtml))
 ---
 
-<If condition={!styleOff}>
-  <div class="markdown"><Fragment set:html={html}><slot></slot></Fragment></div>
+<If condition={contentStyle==='standard'}>
+  <div class="markdown-standard"><Fragment set:html={html}><slot></slot></Fragment></div>
 </If>
-<If condition={styleOff}>
+<If condition={contentStyle==='mini'}>
+  <div class="markdown-mini"><Fragment set:html={html}><slot></slot></Fragment></div>
+</If>
+<If condition={contentStyle==='off'}>
   <Fragment set:html={html}><slot></slot></Fragment>
 </If>
 

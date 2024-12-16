@@ -9,6 +9,8 @@ type PostData = CollectionEntry<'posts'>['data'] & PostDataExtra
 type PostDataExtra = {
   publishDateISOString: string,
   publishDateFormatString: string,
+  updatedDateISOString: string,
+  updatedDateFormatString: string,
   readingTimeWords: number,
   readingTimeHumanizeText: string,
   categoriesItems: { depth: number; name: string; path: string; } []
@@ -23,6 +25,8 @@ const posts = sort(await Promise.all((await getCollection("posts") as Post[]).ma
   post.data.publishDateISOString = post.data.publishDate!.toISOString()
   post.data.publishDateFormatString = moment(post.data.publishDate!).format('yyyy-MM-DD')
   post.data.updatedDate = post.data.updatedDate || fileStat.mtime
+  post.data.updatedDateISOString = post.data.updatedDate!.toISOString()
+  post.data.updatedDateFormatString = moment(post.data.updatedDate!).format('yyyy-MM-DD')
 
   const readingTime = getReadingTime(post.body!)
   post.data.readingTimeWords = readingTime.words
