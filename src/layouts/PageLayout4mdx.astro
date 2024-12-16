@@ -1,5 +1,5 @@
 ---
-import DynamicCard from '@/components/AsideCards/DynamicCard.astro'
+import { useCard } from '@/components/AsideCards'
 import PageLayout from './PageLayout.astro'
 
 interface Props {
@@ -22,7 +22,10 @@ delete props.layout_asideCards
 
 <PageLayout {...props}>
   <aside slot="aside">
-    {layout_asideCards?.map(card=>(<DynamicCard {...card}/>))}
+    {layout_asideCards?.map(card => {
+      const Card = useCard(card.name)
+      return <Card {...card}></Card>
+    })}
   </aside>
   <slot />
 </PageLayout>
