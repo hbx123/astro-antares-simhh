@@ -3,7 +3,7 @@ import If from '../atomic/If.astro'
 import CardBase from './CardBase.astro'
 import CardInfo from './CardInfo.astro'
 import CardRecentPost from './CardRecentPost.astro'
-
+import CardCategroies from './CardCategroies.astro'
 interface Props {
   name: string
   props: any
@@ -21,4 +21,8 @@ const { name, props } = Astro.props
 
 <If condition={name === 'CardRecentPost'}>
   <CardRecentPost {...props}><slot/></CardRecentPost>
+</If>
+
+<If condition={name === 'CardCategroies'}>
+  <CardCategroies {...props}><slot/></CardCategroies>
 </If>
