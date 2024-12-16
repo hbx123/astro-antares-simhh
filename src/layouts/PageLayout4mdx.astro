@@ -1,0 +1,28 @@
+---
+import DynamicCard from '@/components/AsideCards/DynamicCard.astro'
+import PageLayout from './PageLayout.astro'
+
+interface Props {
+  frontmatter: {
+    title: string
+    titleIcon?: string
+    titleColor?: string
+    titleShow?: boolean
+    titleIconOff?: boolean
+    asideOff?: boolean
+
+    layout_asideCards?: any[]
+  }
+}
+
+const props = Astro.props.frontmatter
+const { layout_asideCards } = props
+delete props.layout_asideCards
+---
+
+<PageLayout {...props}>
+  <aside slot="aside">
+    {layout_asideCards?.map(card=>(<DynamicCard {...card}/>))}
+  </aside>
+  <slot />
+</PageLayout>
