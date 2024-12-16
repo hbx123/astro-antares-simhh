@@ -3,26 +3,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import LinkCard from "@/components/widget/LinkCard.astro";
 import { FRIEND_LINK } from "@/config";
 
-const { info, groups, siteshotPrefix } = FRIEND_LINK
+const { groups, siteshotPrefix } = FRIEND_LINK
 
-const myInfo = `
-- name: ${info.author}
-  link: ${info.baseUrl}
-  avatar: ${info.avatarUrl}
-  descr: ${info.description}
-  siteshot: ${info.siteshotUrl}
-`
-const infoCommentTemplate =
-`
-你好，已添加友链！
-\`\`\`yaml
-- name: 网站名称
-  link: 主页链接
-  avatar: 头像链接
-  descr: 网站描述
-  siteshot: 网站快照 可空 默认${siteshotPrefix}{link}
-\`\`\`
-`
 groups.forEach(({links})=>links.forEach(link=>{
   link.siteshot = link.siteshot ? link.siteshot : siteshotPrefix + link.link
   link.siteshot = link.siteshot.startsWith("/") ? siteshotPrefix + link.siteshot : link.siteshot
@@ -32,9 +14,9 @@ groups.forEach(({links})=>links.forEach(link=>{
 
 <div>
   {groups.map(({groupType,groupName,groupDesc,links}) => (
-    <div class="mb10">
-      <h1>{groupName}</h1>
-      <p>{groupDesc}</p>
+    <div class="mb5">
+      <h1 class="text-xl fw-bold mb2">{groupName}</h1>
+      <p class="text-lg mb2">{groupDesc}</p>
       <div>{links.map(link=><div class="inline-block m1"><LinkCard type={groupType} {...link}/></div>)}</div>
     </div>
   ))}
