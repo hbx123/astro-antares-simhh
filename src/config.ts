@@ -8,7 +8,7 @@ const SITE_INFO = {
   endYear: new Date().getFullYear(),
   email: 'coderxi@qq.com',
   baseUrl: BASE_URL + '/',
-  avatarUrl: BASE_URL + '/avatar.png',
+  avatarUrl: BASE_URL + '/favicon.svg',
 }
 const DEFAULT_FRONTMATTER = {
   titleIcon: 'asset:feather,#4c4948|asset:feather,#c9c9d7',
@@ -18,9 +18,9 @@ const DEFAULT_FRONTMATTER = {
 }
 const ASIDE_CARDS = {
   info: {
-    name: "Antares By 汐涌及岸",
+    name: "Antares",
     link: '/',
-    avatar: '/avatar.png',
+    avatar: '/favicon.svg',
     descriptionLines: [
       "There is Antares",
       "A blog template based on Astro",
