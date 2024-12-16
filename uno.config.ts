@@ -10,6 +10,8 @@ const lightTheme: Theme = {
     textPrim: '#4c4948',
     textDesc: '#858585',
     linePrim: '#ccc',
+    antaresBlue: '#024bc0',
+    antaresBlueReverse: '#0ed2f7'
   },
 }
 
@@ -20,6 +22,8 @@ const darkTheme: Theme = {
     textPrim: '#c9c9d7',
     textDesc: '#777777',
     linePrim: '#404040',
+    antaresBlue: '#024bc0',
+    antaresBlueReverse: '#0ed2f7'
   }
 }
 
@@ -47,6 +51,7 @@ export default defineConfig({
     )],
   ],
   shortcuts: {
+    'full': 'w-full h-full',
     'card': 'bg-normal rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-500',
     'gc-text': 'inline-block font-bold text-transparent bg-clip-text bgi-[var(--gc-text-bgimg)] dark:bgi-[var(--gc-text-bgimg-dark)]',
   },

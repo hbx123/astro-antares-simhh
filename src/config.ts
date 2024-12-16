@@ -9,6 +9,7 @@ const SITE_INFO = {
   email: 'coderxi@qq.com',
   baseUrl: BASE_URL + '/',
   avatarUrl: BASE_URL + '/favicon.svg',
+  siteshotUrl: BASE_URL + '/siteshot.png',
 }
 const DEFAULT_FRONTMATTER = {
   titleIcon: 'asset:feather,#4c4948|asset:feather,#c9c9d7',
@@ -136,6 +137,12 @@ const FOOTER = {
       }
     ]
   ] satisfies Format[][]
+}
+
+export const FRIEND_LINK = {
+  info: SITE_INFO,
+  groups: (await import('./config.links')).default,
+  siteshotPrefix: 'https://image.thum.io/get/width/400/crop/800/'
 }
 
 //======================================
