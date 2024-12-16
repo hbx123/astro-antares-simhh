@@ -38,8 +38,36 @@ const posts = sort(await Promise.all((await getCollection("posts") as Post[]).ma
   return post
 })))
 
+type CategoryItem =  PostDataExtra['categoriesItems'][0]
+type CategoryItemWithPostCount = CategoryItem & { postCount: number }
+type CategoryItemWithSubcategories = CategoryItemWithPostCount & { subcategories?:CategoryItemWithSubcategories[] }
+
+const categoriesItemsWithPostCount = posts.map(({data})=>data.categoriesItems).flat().reduce((accumulator, current) => {
+  const find = accumulator.find(c => c.path === current!.path)
+  if (!find) {
+    accumulator.push({...current!,postCount:1});
+  } else {
+    find.postCount++
+  }
+  return accumulator;
+}, [] as CategoryItemWithPostCount[]).sort((a,b) => a.path.localeCompare(b.path));
+
+
+const categoryItemsWithSubcategories = categoriesItemsWithPostCount.reduce((array, category) => {
+  if (category.depth === 1) {
+    array.push({ ...category, subcategories: [] });
+  } else if (category.depth === 2) {
+    array.at(-1)?.subcategories?.push({ ...category, subcategories: [] });
+  } else if (category.depth === 3) {
+    array.at(-1)?.subcategories?.at(-1)?.subcategories?.push({ ...category })
+  }
+  return array;
+}, [] as CategoryItemWithSubcategories[]).sort((rootA,rootB) => rootB.postCount - rootA.postCount);
+
 export default posts
 export {
   sort,
-  type Post
+  type Post,
+  type CategoryItemWithSubcategories,
+  categoryItemsWithSubcategories,
 }
