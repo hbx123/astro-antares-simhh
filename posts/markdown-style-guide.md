@@ -1,6 +1,6 @@
 ---
 title: 'Markdown Style Guide'
-tags: [ Astro ]
+tags: [ Bstro, 'TagA' ]
 categories: [ 'Astro', 'Demo' ]
 description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
 ---

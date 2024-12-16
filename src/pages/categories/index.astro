@@ -1,6 +1,7 @@
 ---
 import PageLayout from "@/layouts/PageLayout.astro";
 import CardRecentPost from "@/components/AsideCards/CardRecentPost.astro";
+import CardTagCloud from '@/components/AsideCards/CardTagCloud.astro';
 import { categoryItemsWithSubcategories, type CategoryItemWithSubcategories } from "@/content/posts";
 ---
 
@@ -8,6 +9,7 @@ import { categoryItemsWithSubcategories, type CategoryItemWithSubcategories } fr
 
 <aside slot="aside">
   <CardRecentPost/>
+  <CardTagCloud/>
 </aside>
 
 <ul class="lh-[2.5] text-4">

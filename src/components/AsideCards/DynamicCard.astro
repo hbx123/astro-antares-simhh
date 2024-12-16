@@ -4,6 +4,7 @@ import CardBase from './CardBase.astro'
 import CardInfo from './CardInfo.astro'
 import CardRecentPost from './CardRecentPost.astro'
 import CardCategroies from './CardCategroies.astro'
+import CardTagCloud from './CardTagCloud.astro'
 interface Props {
   name: string
   props: any
@@ -25,4 +26,8 @@ const { name, props } = Astro.props
 
 <If condition={name === 'CardCategroies'}>
   <CardCategroies {...props}><slot/></CardCategroies>
+</If>
+
+<If condition={name === 'CardTagCloud'}>
+  <CardTagCloud {...props}><slot/></CardTagCloud>
 </If>

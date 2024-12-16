@@ -1,6 +1,6 @@
 ---
 title: 'Third post'
-tags: [ Astro ]
+tags: [ Astro, 'TagC' ]
 categories: [ 'Astro', 'Demo' ]
 description: 'Lorem ipsum dolor sit amet'
 ---

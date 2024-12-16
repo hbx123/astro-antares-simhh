@@ -64,10 +64,16 @@ const categoryItemsWithSubcategories = categoriesItemsWithPostCount.reduce((arra
   return array;
 }, [] as CategoryItemWithSubcategories[]).sort((rootA,rootB) => rootB.postCount - rootA.postCount);
 
+const tagsWithPostCount = posts.filter(post=>post.data.tags).map(post=>post.data.tags!).flat().reduce((accumulator, tag) => {
+  accumulator[tag] = (accumulator[tag] || 0) + 1;
+  return accumulator;
+}, {} as {[key: string]: number})
+
 export default posts
 export {
   sort,
   type Post,
   type CategoryItemWithSubcategories,
   categoryItemsWithSubcategories,
+  tagsWithPostCount,
 }

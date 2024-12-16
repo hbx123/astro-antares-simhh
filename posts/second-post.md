@@ -1,6 +1,6 @@
 ---
 title: 'Second post'
-tags: [ Astro ]
+tags: [ Cstro, 'TagB' ]
 categories: [ 'Astro', 'Demo' ]
 description: 'Lorem ipsum dolor sit amet'
 ---

@@ -3,6 +3,7 @@ import PageLayout from '@/layouts/PageLayout.astro';
 import CardRecentPost from '@/components/AsideCards/CardRecentPost.astro';
 import PostListSimple from '@/components/PostListSimple.astro';
 import CardCategroies from '@/components/AsideCards/CardCategroies.astro';
+import CardTagCloud from '@/components/AsideCards/CardTagCloud.astro';
 import posts_all from '@/content/posts';
 
 export async function getStaticPaths() {
@@ -33,6 +34,7 @@ const { posts } = Astro.props;
   <aside slot="aside">
     <CardRecentPost/>
     <CardCategroies/>
+    <CardTagCloud/>
   </aside>
 
   <PostListSimple posts={posts}/>
