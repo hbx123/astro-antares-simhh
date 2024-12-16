@@ -692,21 +692,21 @@ __metadata:
   linkType: hard
 
 "@iconify/tools@npm:^4.0.5":
-  version: 4.0.7
-  resolution: "@iconify/tools@npm:4.0.7"
+  version: 4.1.1
+  resolution: "@iconify/tools@npm:4.1.1"
   dependencies:
     "@iconify/types": "npm:^2.0.0"
-    "@iconify/utils": "npm:^2.1.32"
+    "@iconify/utils": "npm:^2.2.0"
     "@types/tar": "npm:^6.1.13"
-    axios: "npm:^1.7.7"
+    axios: "npm:^1.7.9"
     cheerio: "npm:1.0.0"
     domhandler: "npm:^5.0.3"
     extract-zip: "npm:^2.0.1"
-    local-pkg: "npm:^0.5.0"
+    local-pkg: "npm:^0.5.1"
     pathe: "npm:^1.1.2"
     svgo: "npm:^3.3.2"
     tar: "npm:^6.2.1"
-  checksum: 10c0/4a69919455c1a2717101aca93b06ff4a8fa7984b238072f83d9378294eca3a3e8c84f85852509a57b0aaac180fb7f97c2194ce842ca79a90654f4c19dcb0d888
+  checksum: 10c0/60380b4b3cb56e4ce222f075fa3cc492d4137b16392cef0577c5dc324271c8c94ae399fa4ee55b884121950882c3f104f544803ab1f2d4bd693a0e494910db44
   languageName: node
   linkType: hard
 
@@ -717,7 +717,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify/utils@npm:^2.1.30, @iconify/utils@npm:^2.1.32, @iconify/utils@npm:^2.1.33":
+"@iconify/utils@npm:^2.1.30, @iconify/utils@npm:^2.1.33, @iconify/utils@npm:^2.2.0":
   version: 2.2.0
   resolution: "@iconify/utils@npm:2.2.0"
   dependencies:
@@ -1257,8 +1257,8 @@ __metadata:
   linkType: hard
 
 "@rollup/pluginutils@npm:^5.1.3":
-  version: 5.1.3
-  resolution: "@rollup/pluginutils@npm:5.1.3"
+  version: 5.1.4
+  resolution: "@rollup/pluginutils@npm:5.1.4"
   dependencies:
     "@types/estree": "npm:^1.0.0"
     estree-walker: "npm:^2.0.2"
@@ -1268,7 +1268,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: 10c0/ba46ad588733fb01d184ee3bc7a127d626158bc840b5874a94c129ff62689d12f16f537530709c54da6f3b71f67d705c4e09235b1dc9542e9d47ee8f2d0b8b9e
+  checksum: 10c0/6d58fbc6f1024eb4b087bc9bf59a1d655a8056a60c0b4021d3beaeec3f0743503f52467fd89d2cf0e7eccf2831feb40a05ad541a17637ea21ba10b21c2004deb
   languageName: node
   linkType: hard
 
@@ -2138,7 +2138,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.7.7":
+"axios@npm:^1.7.9":
   version: 1.7.9
   resolution: "axios@npm:1.7.9"
   dependencies:
@@ -3323,13 +3323,13 @@ __metadata:
   linkType: hard
 
 "fast-xml-parser@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "fast-xml-parser@npm:4.5.0"
+  version: 4.5.1
+  resolution: "fast-xml-parser@npm:4.5.1"
   dependencies:
     strnum: "npm:^1.0.5"
   bin:
     fxparser: src/cli/cli.js
-  checksum: 10c0/71d206c9e137f5c26af88d27dde0108068a5d074401901d643c500c36e95dfd828333a98bda020846c41f5b9b364e2b0e9be5b19b0bdcab5cf31559c07b80a95
+  checksum: 10c0/70c6c675770d57d4b73716a1cdccff3780a5f818cffdab9c7560003e1724209001af32fbe7bb27a01107389b1998191c62e20104788ba17e218dfe063aa15b57
   languageName: node
   linkType: hard
 
@@ -4116,7 +4116,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"local-pkg@npm:^0.5.0, local-pkg@npm:^0.5.1":
+"local-pkg@npm:^0.5.1":
   version: 0.5.1
   resolution: "local-pkg@npm:0.5.1"
   dependencies:
@@ -4150,11 +4150,11 @@ __metadata:
   linkType: hard
 
 "magic-string@npm:^0.30.11, magic-string@npm:^0.30.14":
-  version: 0.30.15
-  resolution: "magic-string@npm:0.30.15"
+  version: 0.30.17
+  resolution: "magic-string@npm:0.30.17"
   dependencies:
     "@jridgewell/sourcemap-codec": "npm:^1.5.0"
-  checksum: 10c0/7d10403cb0b403c0453d7af57d8d01a58c334b260e64653c5f5c2311800f4c6b1b7f4502153f9051dd8a87116acd50e5e3fce4bf79ec9d7127f087aa1c08b96b
+  checksum: 10c0/16826e415d04b88378f200fe022b53e638e3838b9e496edda6c0e086d7753a44a6ed187adc72d19f3623810589bf139af1a315541cd6a26ae0771a0193eaf7b8
   languageName: node
   linkType: hard
 

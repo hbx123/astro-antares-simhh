@@ -1,7 +1,7 @@
 ---
 title: 'First post'
 tags: [ Astro, 'TagA' ]
-categories: [ 'Astro', 'Demo' ]
+categories: [ 'Category1', 'Category1.1' ]
 description: 'Lorem ipsum dolor sit amet'
 ---
 

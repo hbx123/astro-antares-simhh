@@ -23,7 +23,7 @@ const ASIDE_CARDS = {
     link: '/',
     avatar: '/favicon.svg',
     descriptionLines: [
-      "There is Antares",
+      "This is the Antares theme",
       "A blog template based on Astro",
     ]
   }

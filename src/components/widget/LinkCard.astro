@@ -13,7 +13,7 @@ const { type, name, link, avatar, descr, siteshot } = Astro.props
 ---
 
 <If condition={type==='primary'}>
-  <div class="card inline-block w64 h40 b b-#ccc dark:b-#444 group overflow-hidden hover:b-antaresBlueReverse">
+  <div class="card inline-block w75 h48 b b-#ccc dark:b-#444 group overflow-hidden hover:b-antaresBlueReverse">
     <a target="_blank" class="full block" href={link}>
       <img class="full duration-500 group-hover:scale-110" alt={name} src={siteshot}>
     </a>

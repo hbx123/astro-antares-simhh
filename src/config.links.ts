@@ -26,13 +26,13 @@ export default [
         descr: '我的影子想要去飞翔，我的人还在地上。',
         siteshot: '/wait/3/https://maxchang.me/'
       },
-      ...demolinks(10)
+      ...demolinks(5)
     ]
   },
   {
     groupType: 'normal',
     groupName: 'NORMAL',
-    groupDesc: 'normal links group',
+    groupDesc: 'Normal links group',
     links: [
       {
         name: "Astro",
@@ -41,7 +41,7 @@ export default [
         descr: '本站所采用的框架！',
         siteshot: ''
       },
-      ...demolinks(11)
+      ...demolinks(9)
     ]
   },
   {
