@@ -1,0 +1,12 @@
+---
+layout: '@/layouts/PageLayout4mdx.astro'
+layout_asideCards: 
+  - { name: CardInfo }
+title: '归档'
+titleIcon: 'mdi:archive'
+---
+
+import posts from '@/content/posts'
+import PostList from '@/components/PostListSimple.astro'
+
+<PostList posts={posts}/>

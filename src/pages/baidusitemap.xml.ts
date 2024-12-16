@@ -11,7 +11,7 @@ export const GET = async (context: APIContext) => {
   posts.forEach((post) => {
     const element = sitemap.ele('url')
     element.ele('loc').txt(BASE_URL + '/posts/' + post.id)
-    element.ele('lastmod').txt(post.data.publishDate!.toISOString())
+    element.ele('lastmod').txt(post.data.publishDateISOString)
   })
   const xml = sitemap.end({ prettyPrint: true })
   return new Response(xml, { headers: { 'Content-Type': 'application/xml' } })
