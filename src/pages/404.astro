@@ -16,7 +16,7 @@ const items = NAV_ITEMS.map(item=>[item,...item.children||[]]).flat()
     <h2>返回 <a href="javascript:window.history.back()">刚才的页面</a></h2>
     <h2>尝试 <a href="/search">进行搜索</a></h2>
     <h2>或者 下面是一些有用的链接：</h2>
-    <ul class="list-circle-inside">
+    <ul class="list-circle-inside my4">
       {items.map(item=>(
         <li>{item.text} - <a href={item.href}>{item.href}</a></li>
       ))}
