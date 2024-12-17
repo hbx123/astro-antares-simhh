@@ -14,10 +14,11 @@ export const getStaticPaths = async () =>
 type Props = Post
 
 const post = Astro.props
+const { title } = post.data
 const { Content, headings } = await render(post)
 ---
 
-<PageLayout title={post.data.title} asideCards={['CardRecentPost']}>
+<PageLayout title={post.data.title} asideCards={['CardRecentPost',['CardTableOfContents',{title,headings}]]}>
   <hr>
   <div class="my3">
     <PostMeta post={post}/>

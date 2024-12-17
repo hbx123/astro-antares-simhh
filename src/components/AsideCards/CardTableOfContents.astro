@@ -1,0 +1,43 @@
+---
+import CardBase from "./CardBase.astro";
+import type { MarkdownHeading } from 'astro'
+
+type HeadingWithSubheadings = MarkdownHeading & {
+  subheadings?: HeadingWithSubheadings[]
+}
+
+interface Props {
+  title: string,
+  headings: MarkdownHeading[]
+}
+
+const { title, headings } = Astro.props
+
+const grouppedHeadings = headings.reduce((array, heading) => {
+  if (heading.depth === 1) {
+    array.push({ ...heading, subheadings: [] })
+  } else if (heading.depth === 2) {
+    array.at(-1)?.subheadings?.push({ ...heading, subheadings: [] })
+  } else if (heading.depth === 3) {
+    array.at(-1)?.subheadings?.at(-1)?.subheadings?.push({ ...heading })
+  }
+  return array
+}, [] as HeadingWithSubheadings[])
+---
+
+<CardBase title="目录" iconName='mdi:menu'>
+  <ol class="card-toc text-0.8em lh-snug">
+    <li class="title pl-2">{title}</li>
+  {(()=>{
+  
+    const h = (heading:HeadingWithSubheadings,number:string) => (
+      <li class="pl-2">
+        <a class="w-full inline-block truncate" href={`#${heading.slug}`}>{number}. {heading.text}</a>
+        { heading.subheadings && <ol> { heading.subheadings.map((subheading, i) => h(subheading,`${number}.${i+1}`)) } </ol> }
+      </li>
+    )
+    return grouppedHeadings.map((heading, i)=> h(heading,`${i+1}`))
+  
+  })()}
+  </ol>
+</CardBase>
