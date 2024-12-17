@@ -16,7 +16,7 @@ type PostDataExtra = {
   categoriesItems: { depth: number; name: string; path: string; } []
 }
 
-const sort = (posts: Post[]) => posts.sort((postA,postB)=>postA.data.publishDate!.valueOf() - postB.data.publishDate!.valueOf())
+const sort = (posts: Post[]) => posts.sort((postA,postB)=>postB.data.publishDate!.valueOf() - postA.data.publishDate!.valueOf())
 
 const posts = sort(await Promise.all((await getCollection("posts") as Post[]).map(async post => {
 
