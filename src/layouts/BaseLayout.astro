@@ -5,6 +5,7 @@ import FooterFragment from '@/components/fragment/FooterFragment.astro'
 import If from '@/components/atomic/If.astro'
 import NavBar from '@/components/NavBar.astro'
 import { SITE_INFO } from '@/config'
+import { ensuredCard, type EnsuredCardParams } from '@/components/AsideCards'
 const { language: lang, title: deafultTitle } = SITE_INFO
 
 interface Props {
@@ -12,7 +13,8 @@ interface Props {
   title?: string
   description?: string
   image?: string
-  asideOff?: boolean
+  asideOff?: boolean,
+  asideCards?: EnsuredCardParams[]
 }
 const {
   subtitle,
@@ -20,6 +22,7 @@ const {
   description = '',
   image = '',
   asideOff = false,
+  asideCards
 } = Astro.props
 ---
 
@@ -42,7 +45,11 @@ const {
     <If condition={!asideOff}>
       <div class="wfull max-w28% mr2">
         <div class="sticky top-4">
-          <slot name="aside"/>
+          <slot name="aside">
+            <aside>
+              {asideCards?.map(ensuredCard).map(([Card,props]) => <Card {...props}/>)}
+            </aside>
+          </slot>
         </div>
       </div>
       <div class="wfull max-w72% animate-move-up">

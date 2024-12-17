@@ -35,11 +35,6 @@ const NAV_ITEMS = [
     href: "/"
   },
   {
-    icon: "mdi:file",
-    text: "文章",
-    href: "/posts"
-  },
-  {
     icon: "mdi:archive",
     text: "归档",
     href: "/archives",

@@ -1,14 +1,10 @@
 ---
 import PageLayout from "@/layouts/PageLayout.astro";
-import CardInfo from '@/components/AsideCards/CardInfo.astro'
 import { NAV_ITEMS } from "@/config";
 const items = NAV_ITEMS.map(item=>[item,...item.children||[]]).flat()
 ---
 
-<PageLayout title="Error: 404" titleIconOff>
-  <aside slot="aside">
-    <CardInfo/>
-  </aside>
+<PageLayout title="Error: 404" titleIconOff asideCards={['CardInfo','CardCategroies','CardTagCloud']}>
   <h1 class="font-700 text-8xl my16">Oops!</h1>
   <div class="lh-loose">
     <h2 class="text-xl">这里似乎没有你要找的页面 :(</h2>

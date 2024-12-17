@@ -1,9 +1,6 @@
 ---
 import PageLayout from '@/layouts/PageLayout.astro';
 import PostListSimple from '@/components/PostListSimple.astro';
-import CardRecentPost from '@/components/AsideCards/CardRecentPost.astro';
-import CardCategroies from '@/components/AsideCards/CardCategroies.astro';
-import CardTagCloud from '@/components/AsideCards/CardTagCloud.astro';
 import posts_all from '@/content/posts';
 
 export async function getStaticPaths() {
@@ -22,11 +19,8 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<PageLayout title={`标签 - ${tag}`} titleIcon="mdi:tag">
-  <aside slot="aside">
-    <CardRecentPost/>
-    <CardTagCloud/>
-    <CardCategroies/>
-  </aside>
+<PageLayout title={`标签 - ${tag}`} titleIcon="mdi:tag" asideCards={['CardRecentPost','CardCategroies']}>
+
   <PostListSimple posts={posts}/>
+
 </PageLayout>

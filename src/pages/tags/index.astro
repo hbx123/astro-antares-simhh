@@ -1,17 +1,10 @@
 ---
 import PageLayout from "@/layouts/PageLayout.astro";
-import CardRecentPost from '@/components/AsideCards/CardRecentPost.astro';
-import CardCategroies from "@/components/AsideCards/CardCategroies.astro";
 import { tagsWithPostCount } from '@/content/posts';
 import { getRandomRGB } from '@/utils/color';
 ---
 
-<PageLayout title="标签" titleIcon="mdi:tag-multiple">
-
-<aside slot="aside">
-  <CardRecentPost/>
-  <CardCategroies/>
-</aside>
+<PageLayout title="标签" titleIcon="mdi:tag-multiple" asideCards={['CardRecentPost','CardCategroies']}>
 
 <div class="lh-[3] text-4">
   {Object.entries(tagsWithPostCount).map(([tag,post_count]) => (

@@ -1,25 +1,26 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import TitleHuge from '@/components/widget/TitleHuge.astro'
-interface Props {
+import type { EnsuredCardParams } from '@/components/AsideCards'
+type Props = {
+  frontmatter?: Props //for .mdx layout
+} & {
   title: string
   titleIcon?: string
   titleColor?: string
   titleShow?: boolean
   titleIconOff?: boolean
   asideOff?: boolean
+  asideCards?: EnsuredCardParams[],
 }
-
-const { title, titleIcon, titleColor, titleShow, titleIconOff, asideOff } = Astro.props
+const { title, titleIcon, titleColor, titleShow, titleIconOff, asideOff, asideCards } = Astro.props.frontmatter || Astro.props
 ---
 
-<BaseLayout subtitle={title} description={title} {asideOff}>
+<BaseLayout subtitle={title} description={title} {asideOff} {asideCards}>
 
-  <Fragment slot="aside"><slot name="aside"/></Fragment>
-  
   <div class="card wfull p8 lg:p13">
     <TitleHuge {title} {titleIcon} {titleColor} {titleShow} {titleIconOff}/>
-    <slot></slot>
+    <slot/>
   </div>
   <slot name="after"></slot>
   
