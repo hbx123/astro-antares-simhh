@@ -11,6 +11,7 @@ const SITE_INFO = {
   avatarUrl: BASE_URL + '/favicon.svg',
   siteshotUrl: BASE_URL + '/siteshot.png',
 }
+const POST_PGAE_SIZE = 5
 const DEFAULT_FRONTMATTER = {
   titleIcon: 'asset:feather,#4c4948|asset:feather,#c9c9d7',
   titleColor: '#4c4948|#c9c9d7',
@@ -151,4 +152,4 @@ function dependencies() { return packageJson.dependencies }
 import type { Format } from 'badge-maker'
 import moment from 'moment'
 moment.locale(SITE_INFO.language)
-export { BASE_URL, SITE_INFO, DEFAULT_FRONTMATTER, NAV_ITEMS, FOOTER, ASIDE_CARDS }
+export { BASE_URL, SITE_INFO, POST_PGAE_SIZE, DEFAULT_FRONTMATTER, NAV_ITEMS, FOOTER, ASIDE_CARDS }

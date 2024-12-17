@@ -1,25 +1,25 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro'
 import PostCard from '@/components/PostCard.astro'
-import PostPageNav from '@/components/PostPageNav.astro'
+import PageNav from '@/components/widget/PageNav.astro'
 import type { GetStaticPaths } from 'astro'
-import posts from '@/content/posts'
+import { POST_PGAE_SIZE as pageSize } from '@/config'
+import posts_all from '@/content/posts'
 
 export const getStaticPaths = (async ({ paginate }) => {
-  return paginate(posts, { pageSize: 5 })
+  return paginate(posts_all, { pageSize })
 }) satisfies GetStaticPaths
 
 const { page } = Astro.props
-
-console.log(page.currentPage);
-
+const posts = page.data
+const pnCurr = page.currentPage, pnLast = page.lastPage
 ---
 
 <BaseLayout asideCards={['CardInfo','CardCategroies','CardTagCloud']}>
   <div class="space-y-5">
-    {page.data.map((post) => (
+    {posts.map((post) => (
       <PostCard {post}/>
     ))}
   </div>
-  <PostPageNav {page}/>
+  <PageNav {pnCurr} {pnLast} urlPrefix="/page/" urlFirst="/"/>
 </BaseLayout>
