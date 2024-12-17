@@ -12,12 +12,13 @@ interface Props {
 const { pnCurr, pnLast, urlPrefix, urlFirst } = Astro.props;
 const pnUrl = (pn: number) => pn == 1 ? urlFirst || urlPrefix + 1 : urlPrefix + pn
 
-const pnBtnLimit = 5 //最多显示几个数字按钮
+let pnBtnLimit = 5 //最多显示几个数字按钮
+pnBtnLimit = Math.min(pnBtnLimit,pnLast)
 let pnBtnStart = Math.ceil(pnCurr - ( pnBtnLimit / 2 ))
-if (pnBtnStart < 1) pnBtnStart = 1
+pnBtnStart = Math.max(pnBtnStart,1)
 let pnBtnEnd = pnBtnStart + pnBtnLimit - 1
-if (pnBtnEnd > pnLast) pnBtnEnd = pnLast
-if (pnBtnStart > pnLast - pnBtnLimit + 1) pnBtnStart = pnLast - pnBtnLimit + 1
+pnBtnEnd = Math.min(pnBtnEnd,pnLast)
+pnBtnStart = Math.min(pnBtnStart,pnLast - pnBtnLimit + 1)
 const pnList = Array.from({ length: pnBtnEnd - pnBtnStart + 1 }, (_, i) => pnBtnStart + i);
 ---
 
