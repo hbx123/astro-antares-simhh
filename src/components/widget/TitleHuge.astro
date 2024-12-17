@@ -21,7 +21,7 @@ const {
 } = Astro.props
 ---
 
-<h1 id={id} class="text-3xl items-center pb4 mb4" style={{display:titleShow?'flex':'none'}}>
+<h1 id={id} class="text-3xl items-center pb4" style={{display:titleShow?'flex':'none'}}>
   <If condition={!titleIconOff}>
     <span class="w-8 h-8 min-w-8 min-h-8 max-w-8 max-h-8 mr-1">
       <TitleIcon {...ensureTitleIcon(titleIcon)}/>

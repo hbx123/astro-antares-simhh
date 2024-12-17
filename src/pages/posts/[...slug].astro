@@ -2,9 +2,9 @@
 import posts from '@/content/posts'
 import type { Post } from '@/content/posts'
 import { render } from 'astro:content'
-import TOC from '@/components/atomic/TableOfContents.astro'
 import PageLayout from '@/layouts/PageLayout.astro'
-import CardRecentPost from '@/components/AsideCards/CardRecentPost.astro'
+import Markdown from '@/components/atomic/Markdown.astro'
+import PostMeta from '@/components/PostMeta.astro'
 
 export const getStaticPaths = async () =>
   posts.map((post) => ({
@@ -17,10 +17,14 @@ const post = Astro.props
 const { Content, headings } = await render(post)
 ---
 
-<PageLayout title={post.data.title}>
-  <aside slot="aside">
-    <CardRecentPost/>
-  </aside>
-  <TOC {headings} />
-  <Content />
+<PageLayout title={post.data.title} asideCards={['CardRecentPost']}>
+  <hr>
+  <div class="my3">
+    <PostMeta post={post}/>
+  </div>
+  <div class="mx2">
+    <Markdown>
+      <Content />
+    </Markdown>
+  </div>
 </PageLayout>
