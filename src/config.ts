@@ -11,7 +11,7 @@ const SITE_INFO = {
   avatarUrl: BASE_URL + '/favicon.svg',
   siteshotUrl: BASE_URL + '/siteshot.png',
 }
-const POST_PGAE_SIZE = 5
+const POST_PGAE_SIZE = 1
 const DEFAULT_FRONTMATTER = {
   titleIcon: 'asset:feather,#4c4948|asset:feather,#c9c9d7',
   titleColor: '#4c4948|#c9c9d7',

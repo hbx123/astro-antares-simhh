@@ -10,24 +10,27 @@ interface Props {
 };
 
 const { pnCurr, pnLast, urlPrefix, urlFirst } = Astro.props;
-const pnList = Array.from({length:pnLast},((_,i)=>i+1))
-const pnPrev = pnCurr <= 1 ? null : pnCurr - 1
-const pnNext = pnCurr >= pnLast ? null : pnCurr + 1
 const pnUrl = (pn: number) => pn == 1 ? urlFirst || urlPrefix + 1 : urlPrefix + pn
+
+const pnBtnLimit = 5 //最多显示几个数字按钮
+let pnBtnStart = Math.ceil(pnCurr - ( pnBtnLimit / 2 ))
+if (pnBtnStart < 1) pnBtnStart = 1
+let pnBtnEnd = pnBtnStart + pnBtnLimit - 1
+if (pnBtnEnd > pnLast) pnBtnEnd = pnLast
+if (pnBtnStart > pnLast - pnBtnLimit + 1) pnBtnStart = pnLast - pnBtnLimit + 1
+const pnList = Array.from({ length: pnBtnEnd - pnBtnStart + 1 }, (_, i) => pnBtnStart + i);
 ---
 
 <nav class="flex justify-center my6 ">
   <div class="flex space-x-2">
-    <If condition={pnPrev}>
-      <a class="btn-num" href={pnUrl(pnPrev!)}><Icon name="mdi:chevron-left"/></a>
+    <If condition={pnCurr > 1}>
+      <a class="btn-num" href={pnUrl(1)}><Icon name="mdi:chevron-double-left"/></a>
     </If>
-    {
-      pnList.map(pn => (
-        <a class="btn-num" href={pnUrl(pn)} style={pn==pnCurr?'background-color:#7B9EB6;num:#fff;':''}>{pn}</a>
-      ))
-    }
-    <If condition={pnNext}>
-      <a class="btn-num" href={pnUrl(pnNext!)}><Icon name="mdi:chevron-right"/></a>
+    {pnList.map(pn => (
+      <a class="btn-num" href={pnUrl(pn)} style={pn==pnCurr?'background-color:#7B9EB6;color:#fff;':''}>{pn}</a>
+    ))}
+    <If condition={pnCurr < pnLast}>
+      <a class="btn-num" href={pnUrl(pnLast!)}><span class="text-xs">共 {pnLast} 页</span><Icon name="mdi:chevron-double-right"/></a>
     </If>
   </div>
 </nav>
