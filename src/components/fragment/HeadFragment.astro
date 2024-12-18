@@ -1,5 +1,5 @@
 ---
-import { SITE_INFO } from '@/config'
+import { FAVICON, SITE_INFO } from '@/config'
 
 interface Props {
   title: string,
@@ -15,7 +15,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" href="/favicon.svg" rel="preload"/>
+<link rel="icon" href={FAVICON} rel="preload"/>
 <meta name="generator" content={Astro.generator} />
 <meta name="referrer" content="no-referrer"/>
 <script is:inline type="application/ld+json" set:html={JSON.stringify({

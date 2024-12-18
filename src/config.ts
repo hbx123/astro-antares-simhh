@@ -1,3 +1,4 @@
+const FAVICON = '/favicon.svg'
 const BASE_URL = 'https://antares.coderxi.com'
 const SITE_INFO = {
   title: 'Antares',
@@ -152,4 +153,4 @@ function dependencies() { return packageJson.dependencies }
 import type { Format } from 'badge-maker'
 import moment from 'moment'
 moment.locale(SITE_INFO.language)
-export { BASE_URL, SITE_INFO, POST_PGAE_SIZE, DEFAULT_FRONTMATTER, NAV_ITEMS, FOOTER, ASIDE_CARDS }
+export { FAVICON, BASE_URL, SITE_INFO, POST_PGAE_SIZE, DEFAULT_FRONTMATTER, NAV_ITEMS, FOOTER, ASIDE_CARDS }
