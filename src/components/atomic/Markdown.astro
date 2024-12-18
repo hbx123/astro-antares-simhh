@@ -6,24 +6,22 @@ import { markdown2html } from '@/utils/markdown'
 import If from './If.astro'
 
 interface Props {
-  contentStyle?: 'standard'|'mini'|'off'
+  style?: 'standard'|'mini'|'off'
+  render? : boolean, // 启用则认为内容为markdown 会转为html
 }
 
-const { contentStyle = 'standard' } = Astro.props
-
-//use in .astro file, is markdown
-//use in .mdx file, is rendered html
-const markdownOrhtml = ((await Astro.slots.render('default'))||'').trim()
-const html = markdownOrhtml.startsWith('<') ? markdownOrhtml : (await markdown2html(markdownOrhtml))
+const { style = 'standard', render = false } = Astro.props
+const content = await Astro.slots.render('default')
+const html =  render ? await markdown2html(content) : content
 ---
 
-<If condition={contentStyle==='standard'}>
-  <div class="markdown-standard"><Fragment set:html={html}><slot></slot></Fragment></div>
+<If condition={style==='standard'}>
+  <div class="markdown-standard"><Fragment set:html={html}/></div>
 </If>
-<If condition={contentStyle==='mini'}>
-  <div class="markdown-mini"><Fragment set:html={html}><slot></slot></Fragment></div>
+<If condition={style==='mini'}>
+  <div class="markdown-mini"><Fragment set:html={html}/></div>
 </If>
-<If condition={contentStyle==='off'}>
-  <Fragment set:html={html}><slot></slot></Fragment>
+<If condition={style==='off'}>
+  <Fragment set:html={html}/>
 </If>
 

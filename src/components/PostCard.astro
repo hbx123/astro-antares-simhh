@@ -2,18 +2,11 @@
 import type { Post } from "@/content/posts";
 import { ensureTitleIcon, titleColor2gcTextstyleVars } from '@/utils'
 import TitleIcon from "./widget/TitleIcon.astro";
-import If from "./atomic/If.astro";
-import Markdown from "./atomic/Markdown.astro";
-import { markdown2html } from "@/utils/markdown";
 import PostMeta from "./PostMeta.astro";
 interface Props {
-  post: Post,
-  showBody?: boolean
+  post: Post
 }
-
-const { post, showBody } = Astro.props
-
-const postBodyHtml = showBody? (await markdown2html(post.body!)) : ''
+const { post } = Astro.props
 ---
 
 <div class="card p10">
@@ -28,14 +21,6 @@ const postBodyHtml = showBody? (await markdown2html(post.body!)) : ''
   <div class="pt-3 pb-4"><PostMeta post={post}/></div>
   <div class="min-h-5em p3">
     <div class="text-sm my3" set:html={post.data.description}></div>
-    <If condition={showBody}>
-      <hr>
-      <a class="block wfull" href={'/posts/'+post.id}>
-        <div class="wfull text-sm mt3 mb8 max-h-20em overflow-y-auto overflow-x-hidden cursor-pointer-important" onclick={`location.href="${'/posts/'+post.id}"`}>
-          <Markdown contentStyle="mini" set:html={postBodyHtml}></Markdown>
-        </div>
-      </a>
-    </If>
   </div>
   <div class="font-mono">
     <slot name="tag-start"></slot>
