@@ -3,13 +3,18 @@ import type { Post } from "@/content/posts";
 import { ensureTitleIcon, titleColor2gcTextstyleVars } from '@/utils'
 import TitleIcon from "./widget/TitleIcon.astro";
 import PostMeta from "./PostMeta.astro";
+import { Icon } from "astro-icon/components";
+import If from "./atomic/If.astro";
 interface Props {
   post: Post
 }
 const { post } = Astro.props
 ---
 
-<div class="card p10">
+<div class="card p10 pos-relative overflow-hidden">
+  <If condition={post.data.top}>
+    <div class="text-2xl pos-absolute top-2 -right-7 rotate-45 b b-gray-3 bg-gray-2 shadow-md py1 px10 dark:bg-dark-4 dark:b-dark-1"><Icon class="color-#ff7242" name="mdi:pin"/></div>
+  </If>
   <h1 class="group text-2xl font-semibold flex items-center ml-[-1em]" style={titleColor2gcTextstyleVars(post.data.titleColor)}>
     <span class="gc-text w-1em opacity-0 group-hover:opacity-100">「</span>
     <span class="w-8 h-8 min-w-8 min-h-8 max-w-8 max-h-8 mr-1">

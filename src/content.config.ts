@@ -13,6 +13,7 @@ const posts = defineCollection({
     tags: z.string().array().optional(),
     categories: z.string().array().default(d.categories),
     description: z.string().default(d.description),
+    top: z.number().optional() //置顶,数字越大越靠前
   }),
 })
 

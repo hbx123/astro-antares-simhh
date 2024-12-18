@@ -16,7 +16,23 @@ type PostDataExtra = {
   categoriesItems: { depth: number; name: string; path: string; } []
 }
 
-const sort = (posts: Post[]) => posts.sort((postA,postB)=>postB.data.publishDate!.valueOf() - postA.data.publishDate!.valueOf())
+const sort = (posts: Post[]) => posts.sort(({data:a}, {data:b}) => {
+  if(a.top && b.top) {
+    //top值相同，最新的文章在前
+    if(a.top == b.top) return b.publishDate!.valueOf() - a.publishDate!.valueOf();
+    //top值不同，top大的在前
+    else return b.top - a.top; 
+    //只有一篇文章top有定义，有top在前
+  } else if(a.top && !b.top) {
+    return -1;
+  } else if(!a.top && b.top) {
+    return 1;
+  } else {
+    //都没有top，最新的文章在前
+    return b.publishDate!.valueOf() - a.publishDate!.valueOf();
+  }
+})
+
 
 const posts = sort(await Promise.all((await getCollection("posts") as Post[]).map(async post => {
 
