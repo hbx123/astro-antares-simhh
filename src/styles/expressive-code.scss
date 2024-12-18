@@ -11,6 +11,9 @@
 
 .expressive-code {
   padding: 0.5em 0;
+  span {
+    cursor: var(--cursor-text), text!important;
+  }
   .frame.is-terminal {
     .header {
       background: linear-gradient(to top, transparent 1.5px, transparent 1.5px), linear-gradient(#f3f3f3, #f3f3f3)!important;

@@ -4,12 +4,16 @@ import PostCard from '@/components/PostCard.astro'
 import PageNav from '@/components/widget/PageNav.astro'
 import { POST_PGAE_SIZE as pageSize } from '@/config'
 import posts_all from '@/content/posts'
+import Markdown from '@/components/atomic/Markdown.astro'
 const posts = posts_all.slice(0, pageSize)
 const pnCurr = 1, pnLast = Math.ceil(posts_all.length * 1.0 / pageSize)
 ---
 
 <BaseLayout asideCards={['CardInfo','CardCategroies','CardTagCloud']}>
   <div class="space-y-5">
+    <div class="card p8">
+      <Markdown render set:html={`# Hi there! 👋\nThis is the Antares theme  \nA blog template based on Astro`}/>
+    </div>
     {posts.map((post) => (
       <PostCard {post}/>
     ))}
