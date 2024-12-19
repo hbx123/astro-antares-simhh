@@ -13,7 +13,7 @@ const { type, name, link, avatar, descr, siteshot } = Astro.props
 ---
 
 <If condition={type==='primary'}>
-  <div class="card inline-block w75 h48 b b-#ccc dark:b-#444 group overflow-hidden hover:b-antaresBlueReverse">
+  <div class="card inline-block w75 h48 b b-#ccc dark:b-#444 group overflow-hidden hover:b-gradientBlue-middle">
     <a target="_blank" class="full block" href={link}>
       <img class="full group-hover:scale-110 duration-500" alt={name} src={siteshot}>
     </a>
@@ -31,7 +31,7 @@ const { type, name, link, avatar, descr, siteshot } = Astro.props
 </If>
 
 <If condition={type==='normal'}>
-  <div class="card inline-block w49.5 b b-#ccc dark:b-#444 group overflow-hidden hover:b-antaresBlueReverse">
+  <div class="card inline-block w49.5 b b-#ccc dark:b-#444 group overflow-hidden  hover:b-gradientBlue-middle">
     <a target="_blank" class="full block" href={link}>
       <div class="wfull h27 pos-relative overflow-hidden flex items-center">
         <img class="full group-hover:scale-110 duration-500" alt={name} src={siteshot}>
@@ -49,7 +49,7 @@ const { type, name, link, avatar, descr, siteshot } = Astro.props
 </If>
 
 <If condition={type==='simple'}>
-  <div class="card inline-flex w60 flex-col py2 px4 b b-#ccc dark:b-#444 hover:b-antaresBlueReverse overflow-hidden">
+  <div class="card inline-flex w60 flex-col py2 px4 b b-#ccc dark:b-#444  hover:b-gradientBlue-middle overflow-hidden">
     <a target="_blank" class="flex" href={link}>
       <img class="w10 h10 m-auto rounded-5 bg-global b b-#ccc dark:b-#444" alt={name} src={avatar}>
       <div class="flex-1 ml2 wfull overflow-hidden">

@@ -3,37 +3,35 @@ import { presetUno, type PresetOrFactoryAwaitable } from 'unocss'
 import presetTheme from 'unocss-preset-theme'
 import { defineConfig } from 'unocss'
 
-const lightTheme: Theme = {
+export const lightTheme = {
   colors: {
     global: '#f0f2f4',
     normal: '#ffffff',
     textPrim: '#4c4948',
     textDesc: '#858585',
     linePrim: '#ccc',
-    antaresBlue: '#024bc0',
-    antaresBlueReverse: '#0ed2f7',
+    gradientBlue: {
+      left: '#0ed2f7',
+      middle: '#1E8CD9',
+      right: '#024bc0',
+    },
     mask: 'rgba(255, 255, 255, 0.6)'
   },
-}
+} satisfies Theme
 
-const darkTheme: Theme = {
+export const darkTheme = {
   colors: {
     global: '#191919',
     normal: '#1e1e1f',
     textPrim: '#c9c9d7',
     textDesc: '#777777',
     linePrim: '#404040',
-    antaresBlue: '#024bc0',
-    antaresBlueReverse: '#0ed2f7',
     mask: 'rgba(0, 0, 0, 0.6)'
   }
-}
+} satisfies Theme
 
 export default defineConfig({
   theme: {
-    fontFamily: {
-      'microsoft-yahei': 'Microsoft YaHei,sans-serif',
-    },
     ...lightTheme,
     animation: {
       keyframes: {

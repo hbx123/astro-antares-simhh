@@ -1,5 +1,6 @@
 ---
 import { FAVICON, SITE_INFO } from '@/config'
+import unoThemeVars from '@/styles/uno-theme-vars'
 
 interface Props {
   title: string,
@@ -12,6 +13,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <!-- Theme -->
 <script is:inline>document.documentElement.className = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')</script>
+<!-- Uno Theme Vars -->
+<style set:html={unoThemeVars}></style>
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
