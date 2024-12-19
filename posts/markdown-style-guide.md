@@ -1,5 +1,5 @@
 ---
-top: 99999
+top: 1
 title: 'Markdown Style Guide'
 titleIcon: 'asset:markdown'
 titleColor: '#20B2AA,#aaa'

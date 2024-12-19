@@ -1,4 +1,5 @@
 ---
+top: 2
 title: 'Using RemarkDirective Post Components'
 titleIcon: '/favicon.svg'
 titleColor: '#0998DF'
