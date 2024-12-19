@@ -45,7 +45,7 @@ const posts = sort(await Promise.all((await getCollection("posts") as Post[]).ma
   post.data.updatedDateISOString = post.data.updatedDate!.toISOString()
   post.data.updatedDateFormatString = moment(post.data.updatedDate!).format('yyyy-MM-DD')
 
-  const readingTime = getReadingTime(post.body!)
+  const readingTime = getReadingTime(post.body||'')
   post.data.readingTimeWords = readingTime.words
   post.data.readingTimeHumanizeText = moment.duration(readingTime.time * 1.2).humanize();
 
