@@ -32,15 +32,15 @@ const ASIDE_CARDS = {
 }
 const NAV_ITEMS = [
   {
-    icon: "mdi:home",
-    text: "首页",
-    href: "/"
-  },
-  {
-    icon: "mdi:archive",
-    text: "归档",
-    href: "/archives",
+    icon: "mdi:post-outline",
+    text: "BLOG",
+    href: "/",
     children: [
+      {
+        icon: "mdi:archive",
+        text: "归档",
+        href: "/archives",
+      },
       {
         icon: "mdi:folder-open",
         text: "分类",
