@@ -2,6 +2,7 @@
 import '@/styles/markdown-standard.scss'
 import '@/styles/markdown-mini.scss'
 import '@/styles/expressive-code.scss'
+import '@/styles/remark-directive-widgets.scss'
 import { markdown2html } from '@/utils/markdown'
 import If from './If.astro'
 
@@ -16,7 +17,7 @@ const html =  render ? await markdown2html(content) : content
 ---
 
 <If condition={style==='standard'}>
-  <div class="markdown-standard"><Fragment set:html={html}/></div>
+  <div class="markdown-standard remark-directive-widgets"><Fragment set:html={html}/></div>
 </If>
 <If condition={style==='mini'}>
   <div class="markdown-mini"><Fragment set:html={html}/></div>

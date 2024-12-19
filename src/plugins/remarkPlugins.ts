@@ -4,7 +4,7 @@ import type { RemarkPlugin } from '.'
 import { visit } from 'unist-util-visit'
 import remarkDirective from 'remark-directive'
 
-const remarkDirectivePostComponents: RemarkPlugin = () => (tree, _) => {
+const remarkDirectiveWidgets: RemarkPlugin = () => (tree, _) => {
   visit(tree, (node) => {
     const data = node.data || (node.data = {})
     if (node.type !== 'containerDirective' && node.type !== 'leafDirective' && node.type !== 'textDirective') return
@@ -27,5 +27,5 @@ const remarkDirectivePostComponents: RemarkPlugin = () => (tree, _) => {
 
 export default [
   remarkDirective,
-  remarkDirectivePostComponents
+  remarkDirectiveWidgets
 ]

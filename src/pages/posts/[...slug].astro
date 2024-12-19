@@ -24,8 +24,10 @@ const { Content, headings } = await render(post)
     <PostMeta post={post}/>
   </div>
   <div class="mx2">
-    <Markdown>
-      <Content />
-    </Markdown>
+      <Markdown>
+        <article>
+          <Content />
+        </article>
+      </Markdown>
   </div>
 </PageLayout>
