@@ -11,7 +11,8 @@ const lightTheme: Theme = {
     textDesc: '#858585',
     linePrim: '#ccc',
     antaresBlue: '#024bc0',
-    antaresBlueReverse: '#0ed2f7'
+    antaresBlueReverse: '#0ed2f7',
+    mask: 'rgba(255, 255, 255, 0.6)'
   },
 }
 
@@ -23,7 +24,8 @@ const darkTheme: Theme = {
     textDesc: '#777777',
     linePrim: '#404040',
     antaresBlue: '#024bc0',
-    antaresBlueReverse: '#0ed2f7'
+    antaresBlueReverse: '#0ed2f7',
+    mask: 'rgba(0, 0, 0, 0.6)'
   }
 }
 

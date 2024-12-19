@@ -15,13 +15,13 @@ const { type, name, link, avatar, descr, siteshot } = Astro.props
 <If condition={type==='primary'}>
   <div class="card inline-block w75 h48 b b-#ccc dark:b-#444 group overflow-hidden hover:b-antaresBlueReverse">
     <a target="_blank" class="full block" href={link}>
-      <img class="full duration-500 group-hover:scale-110" alt={name} src={siteshot}>
+      <img class="full group-hover:scale-110 duration-500" alt={name} src={siteshot}>
     </a>
-    <a target="_blank" class="full block bg-[rgba(255,255,255,0.6)] dark:bg-[rgba(0,0,0,0.6)] flex-col content-center text-center dark:text-#fff text-#222  -translate-y-full group-hover:-translate-y-[200%] duration-500" href={link}>
+    <a target="_blank" class="full block bg-mask flex-col content-center text-center dark:text-#fff text-#222 transition-transform  -translate-y-full group-hover:-translate-y-[200%] duration-500" href={link}>
       <div class="h66% wfull flex items-center">
         <img class="w16 h16 m-auto rounded-10 bg-global b b-#ccc dark:b-#444" alt={name} src={avatar}>
       </div>
-      <div class="h34% wfull flex-col content-center text-sm text-ellipsis whitespace-nowrap bg-[rgba(255,255,255,0.7)] dark:bg-[rgba(0,0,0,0.6)] shadow-[0_0_10px_rgba(0,0,0,0.3)]">
+      <div class="h34% wfull flex-col content-center text-sm text-ellipsis whitespace-nowrap bg-mask shadow-[0_0_10px_rgba(0,0,0,0.3)]">
         <div class="text-md lh-relaxed">{name}</div>
         <div class="px1 truncate text-xs text-#777 dark:text-#aaa">{descr}</div>
       </div>
@@ -31,9 +31,12 @@ const { type, name, link, avatar, descr, siteshot } = Astro.props
 </If>
 
 <If condition={type==='normal'}>
-  <div class="card inline-block w49.5 b b-#ccc dark:b-#444 overflow-hidden hover:b-antaresBlueReverse">
+  <div class="card inline-block w49.5 b b-#ccc dark:b-#444 group overflow-hidden hover:b-antaresBlueReverse">
     <a target="_blank" class="full block" href={link}>
-      <img class="wfull h27" alt={name} src={siteshot}>
+      <div class="wfull h27 pos-relative overflow-hidden flex items-center">
+        <img class="full group-hover:scale-110 duration-500" alt={name} src={siteshot}>
+        <div class="full bg-mask pos-absolute top-0 left-0 group-hover:opacity-0 transition-opacity duration-250"></div>
+      </div>
       <div class="flex flex-col py1 px4 b-t b-#ccc dark:b-#444">
         <div class="flex text-sm lh-relaxed">
           <img class="w5 h5 m-auto rounded-3 bg-global b b-#ccc dark:b-#444" alt={name} src={avatar}>
