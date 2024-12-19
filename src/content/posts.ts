@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import getReadingTime from 'reading-time';
 import moment from 'moment';
 import fs from 'fs'
+import { markdown2html } from '@/utils/markdown';
 
 type Post = CollectionEntry<'posts'> & { data: PostData }
 type PostData = CollectionEntry<'posts'>['data'] & PostDataExtra
@@ -54,6 +55,8 @@ const posts = sort(await Promise.all((await getCollection("posts") as Post[]).ma
     result.push(categoryItem);
     return result;
   }, [] as PostDataExtra['categoriesItems']);
+
+  post.data.description = await markdown2html(post.data.description)
 
   return post
 })))
