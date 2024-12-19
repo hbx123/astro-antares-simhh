@@ -26,7 +26,7 @@ const grouppedHeadings = headings.reduce((array, heading) => {
 ---
 
 <CardBase class="card-toc" title="目录" iconName="mdi:menu">
-  <span id="toc-process" class="text-xs" slot="extra">0</span>
+  <span id="toc-process" class="text-xs" slot="extra"></span>
   <ol class="text-0.8em lh-snug">
     <li class="title pl-2">{title}</li>
   {(()=>{
@@ -78,9 +78,7 @@ toc.forEach(({linkEl, headingEl},index) => {
       }
     }, 1)
   }
-
   setLinkElClass()
-  
   let debounceTimeout: NodeJS.Timeout;
   window.addEventListener("scroll", () => {
     clearTimeout(debounceTimeout);
@@ -89,8 +87,14 @@ toc.forEach(({linkEl, headingEl},index) => {
 
 })
 
+// 阅读进度
+const tocProcessEl = document.getElementById("toc-process")!
 const getTocProcess = () => (window.scrollY / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 100;
-const setTocProcessToEl = () => document.getElementById("toc-process")!.innerText = getTocProcess().toFixed(1) + "%"
+const setTocProcessToEl = () => {
+  let tocProcess = getTocProcess()
+  tocProcess = isNaN(tocProcess) || tocProcess == 0 ? 0 : tocProcess
+  tocProcessEl.innerText = tocProcess ? tocProcess.toFixed(1) + "%" : ''
+}
 document.addEventListener("DOMContentLoaded", setTocProcessToEl)
 window.addEventListener("scroll", setTocProcessToEl)
 </script>
