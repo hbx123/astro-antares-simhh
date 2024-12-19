@@ -1,5 +1,6 @@
 ---
 title: 'Second post'
+publishDate: 'Jul 15 2022'
 tags: [ Cstro, 'TagB' ]
 categories: [ 'Astro', 'Demo' ]
 description: 'Lorem ipsum dolor sit amet'
