@@ -4,6 +4,7 @@ import CardRecentPost from './CardRecentPost.astro'
 import CardCategroies from './CardCategroies.astro'
 import CardTagCloud from './CardTagCloud.astro'
 import CardTableOfContents from './CardTableOfContents.astro'
+import CardMarkdown from './CardMarkdown.astro'
 type Card = (_props: any) => any
 const cards = {
   CardBase,
@@ -12,6 +13,7 @@ const cards = {
   CardCategroies,
   CardTagCloud,
   CardTableOfContents,
+  CardMarkdown,
 }
 type CardName =
   | 'CardBase'
@@ -20,6 +22,7 @@ type CardName =
   | 'CardCategroies'
   | 'CardTagCloud'
   | 'CardTableOfContents'
+  | 'CardMarkdown'
 
 const getCardByName = (name: string|CardName) => {
   const cardNameAllow = Object.keys(cards)
@@ -28,17 +31,20 @@ const getCardByName = (name: string|CardName) => {
   }
   return cards[name as CardName]
 }
-//参数允许为 CardBase / 'CardBase' / [CardBase,props]
-//统一输出为 Card
-export type EnsuredCardParams = Card | CardName | string | [ Card | CardName | string , any]
+//参数允许为 'CardBase' / {CardBase:props} / [CardBase,props] / ['CardBase',props] / CardBase
+//统一输出为 [Card,props]
+export type EnsuredCardParams = Card | CardName | string | [ Card | CardName | string , any | undefined] | { [key in CardName]: any | undefined }
 export const ensuredCard = (p: EnsuredCardParams) => {
   let card, props = {}
-  if (Array.isArray(p)) {
+  if (typeof p === 'string') {
+    card = getCardByName(p)
+  } else if (Object.keys(cards).includes(Object.keys(p).at(0)||'_')) {
+    card = getCardByName(Object.keys(p)[0])
+    props = Object.values(p)[0]
+  } else if (Array.isArray(p)) {
     let [ cardNameOrCard, _props = {} ] = p
     card = (typeof cardNameOrCard === 'string') ? getCardByName(cardNameOrCard) : cardNameOrCard as Card
     props = _props
-  } else if (typeof p === 'string') {
-    card = getCardByName(p)
   } else {
     card = p
   }
