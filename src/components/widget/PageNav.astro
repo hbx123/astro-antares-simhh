@@ -28,10 +28,20 @@ const pnList = Array.from({ length: pnBtnEnd - pnBtnStart + 1 }, (_, i) => pnBtn
       <a class="btn-num" href={pnUrl(1)}><Icon name="mdi:chevron-double-left"/></a>
     </If>
     {pnList.map(pn => (
-      <a class="btn-num" href={pnUrl(pn)} style={pn==pnCurr?'background-color:#7B9EB6;color:#fff;':''}>{pn}</a>
+      <a class="btn-num" href={pnUrl(pn)} class:list={pn==pnCurr?'active':''}>{pn}</a>
     ))}
     <If condition={pnCurr < pnLast}>
       <a class="btn-num" href={pnUrl(pnLast!)}><span class="text-xs">共 {pnLast} 页</span><Icon name="mdi:chevron-double-right"/></a>
     </If>
   </div>
 </nav>
+
+<style>
+  a:hover {
+    color:#1E8CD9;
+  }
+  a.active {
+    background: #1E8CD9;
+    color: #fff;
+  }
+</style>
