@@ -29,6 +29,9 @@ const darkTheme: Theme = {
 
 export default defineConfig({
   theme: {
+    fontFamily: {
+      'microsoft-yahei': 'Microsoft YaHei,sans-serif',
+    },
     ...lightTheme,
     animation: {
       keyframes: {

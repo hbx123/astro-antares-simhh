@@ -33,7 +33,7 @@ const grouppedHeadings = headings.reduce((array, heading) => {
   
     const h = (heading:HeadingWithSubheadings,number:string) => (
       <li class="pl-2">
-        <a class="w-full inline-block truncate transition-colors duration-300" href={`#${heading.slug}`}>{number}. {heading.text}</a>
+        <a class="w-full inline-block truncate duration-300" href={`#${heading.slug}`}>{number}. {heading.text}</a>
         { heading.subheadings && <ol> { heading.subheadings.map((subheading, i) => h(subheading,`${number}.${i+1}`)) } </ol> }
       </li>
     )
