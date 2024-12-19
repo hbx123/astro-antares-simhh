@@ -2,10 +2,11 @@
 import { Icon } from 'astro-icon/components'
 import { SITE_INFO, NAV_ITEMS } from '@/config'
 import { titleColor2gcTextstyleVars } from '@/utils'
+import ThemeIcon from './widget/ThemeIcon.astro'
 ---
 
 <nav id="nav" class="w-screen h15 fixed top-0 bg-normal shadow-md flex opacity-90 z-10">
-  <div class="wfull max-w-screen-2xl m-auto flex px3">
+  <div class="wfull max-w-screen-2xl m-auto flex px3 items-center">
     <div class="flex-1">
       <h1 class="text-xl font-bold">
         <a class="gc-text" style={titleColor2gcTextstyleVars('#0ed2f7,#024bc0|#024bc0,#0ed2f7')} href="/">{SITE_INFO.title}</a>
@@ -31,6 +32,9 @@ import { titleColor2gcTextstyleVars } from '@/utils'
         </div>
       ))}
     </div>
+    <div class="flex space-x-2 px4 items-center text-xl">
+      <ThemeIcon/>
+    </div>
   </div>
 </nav>
 
@@ -40,7 +44,7 @@ import { titleColor2gcTextstyleVars } from '@/utils'
   let isThrottled = false;
   nav.style.transform = window.scrollY != 0 ? "translateY(-100%)" : "translateY(0)";
   document.addEventListener("DOMContentLoaded",()=>{
-    nav.style.transitionDuration = "500ms"
+    nav.style.transition = "transform 500ms";
     setTimeout(() => { nav.style.transform = 'translateY(0)' }, 500);
   })
 

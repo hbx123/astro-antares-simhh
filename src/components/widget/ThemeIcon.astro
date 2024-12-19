@@ -1,0 +1,25 @@
+---
+import { Icon } from "astro-icon/components"
+interface Props { class?: string }
+---
+
+<a class="theme-icon" class:list={Astro.props.class}>
+  <Icon class="light" name="mdi:white-balance-sunny"/>
+  <Icon class="dark" name="mdi:weather-night"/>
+</a>
+
+<style is:global>
+  .theme-icon [data-icon] { display: none; }
+  .light .theme-icon .light { display: block; }
+  .dark .theme-icon .dark { display: block; }
+</style>
+
+<script>
+  const themeChangeEvent = new Event('theme');
+  document.querySelectorAll<HTMLDivElement>(".theme-icon")!.forEach(el=>el.addEventListener("click", function () {
+    const isDark = document.documentElement.classList.contains("dark");
+    document.documentElement.className = isDark ? "light" : "dark";
+    localStorage.setItem("theme", isDark ? "light" : "dark");
+    window.dispatchEvent(themeChangeEvent)
+  }));
+</script>
