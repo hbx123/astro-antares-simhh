@@ -15,7 +15,7 @@ import ThemeIcon from './widget/ThemeIcon.astro'
         <ThemeIcon class="active"/>
       </div>
     </div>
-    <div class="nav-items flex space-x-4 text-1.04em">
+    <div class="hidden lg:flex space-x-4 text-1.04em">
       {NAV_ITEMS.map(navItem =>(
         <div class="nav-item group pos-relative">
           <a class="flex items-center" href={navItem.href} class:list={navItem.href===Astro.originPathname||navItem?.children?.find(navItemChild=>navItemChild.href===Astro.originPathname)?'active':''}>
@@ -34,6 +34,9 @@ import ThemeIcon from './widget/ThemeIcon.astro'
           </div>}
         </div>
       ))}
+    </div>
+    <div class="lg:hidden flex text-1.04em">
+      <slot></slot>
     </div>
   </div>
 </nav>

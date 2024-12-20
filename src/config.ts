@@ -23,6 +23,10 @@ const DEFAULT_FRONTMATTER = {
     placeholder: '输入密码'
   }
 }
+const SIDEBAR_SETTINGS = {
+  name: "Antares",
+  avatar: '/favicon.svg',
+}
 const ASIDE_CARDS = {
   info: {
     name: "Antares",
@@ -127,13 +131,15 @@ const FOOTER = {
 
 export const FRIEND_LINK = {
   info: SITE_INFO,
-  groups: (await import('./config.links')).default,
+  groups: friend_link_groups,
   siteshotPrefix: 'https://image.thum.io/get/width/400/crop/800/'
 }
 
 //======================================
+;
 import packageJson from '../package.json'
 import type { Format } from 'badge-maker'
+import friend_link_groups from './config.links'
 import moment from 'moment'
 moment.locale(SITE_INFO.language)
-export { FAVICON, BASE_URL, SITE_INFO, POST_PGAE_SIZE, DEFAULT_FRONTMATTER, NAV_ITEMS, FOOTER, ASIDE_CARDS }
+export { FAVICON, BASE_URL, SITE_INFO, POST_PGAE_SIZE, DEFAULT_FRONTMATTER, NAV_ITEMS, FOOTER, ASIDE_CARDS, SIDEBAR_SETTINGS }
