@@ -1,5 +1,5 @@
 import sanitizeHtml from 'sanitize-html'
-import { remarkPlugins } from '@/plugins';
+import { remarkPlugins } from '../../plugins';
 import { createMarkdownProcessor } from '@astrojs/markdown-remark'
 
 const processor = await createMarkdownProcessor({

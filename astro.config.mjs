@@ -5,7 +5,7 @@ import unocss from 'unocss/astro'
 import icon from "astro-icon";
 import expressiveCode from 'astro-expressive-code';
 import { BASE_URL } from './src/config'
-import { remarkPlugins, rehypePlugins } from './src/plugins';
+import { remarkPlugins, rehypePlugins } from './plugins';
 
 // https://astro.build/config
 export default defineConfig({
