@@ -51,6 +51,11 @@
   p {
     margin: .6em 0;
     display: inline;
+    clear: both;
+    &::after {
+      content: "\A";
+      white-space: pre;
+    }
   }
 
   blockquote {
@@ -161,11 +166,11 @@
     background: var(--mark-bg-color);
   }
 
-  a.link {
-    color: #49b1f5;
+  a[href] {
+    color: var(--colors-gradientBlue-middle);
     border-bottom: solid transparent 1px;
     &:hover {
-      border-bottom: dotted #49b1f5 1px;
+      border-bottom: dotted var(--colors-gradientBlue-middle) 1px;
     }
   }
 }
