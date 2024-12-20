@@ -5,6 +5,7 @@ import TitleIcon from "./widget/TitleIcon.astro";
 import PostMeta from "./PostMeta.astro";
 import { Icon } from "astro-icon/components";
 import If from "./atomic/If.astro";
+import Markdown from "./atomic/Markdown.astro";
 interface Props {
   post: Post
 }
@@ -12,8 +13,11 @@ const { post } = Astro.props
 ---
 
 <div class="card p10 pos-relative overflow-hidden">
-  <If condition={post.data.top}>
-    <div class="text-2xl pos-absolute top-2 -right-7 rotate-45 b b-gray-3 bg-gray-2 shadow-md py1 px10 dark:bg-dark-4 dark:b-dark-1"><Icon class="color-#ff7242" name="mdi:pin"/></div>
+  <If condition={post.data.top||post.data.password}>
+    <div class="text-2xl pos-absolute top-2 -right-7 rotate-45 b bg-gray-1 shadow-md py1 dark:bg-dark-4 dark:b-dark-1 flex w26 justify-center color-#aaa">
+      <If condition={post.data.top}><Icon class="color-#ff7242" name="mdi:pin"/></If>
+      <If condition={post.data.password}><Icon class="text-xl" name="mdi:lock"/></If>
+    </div>
   </If>
   <h1 class="group text-2xl font-semibold flex items-center ml-[-1em]" style={titleColor2gcTextstyleVars(post.data.titleColor)}>
     <span class="gc-text w-1em opacity-0 group-hover:opacity-100">「</span>
@@ -25,7 +29,12 @@ const { post } = Astro.props
   </h1>
   <div class="pt-3 pb-4"><PostMeta post={post}/></div>
   <div class="min-h-5em p3">
-    <div class="text-sm my3" set:html={post.data.description}></div>
+    <If condition={!post.data.password}>
+      <div class="text-sm my3"><Markdown render set:html={post.data.description}/></div>
+    </If>
+    <If condition={post.data.password}>
+      <div class="text-sm my3"><Markdown render set:html={post.data.encrypt.description}/></div>
+    </If>
   </div>
   <div class="font-mono">
     <slot name="tag-start"></slot>

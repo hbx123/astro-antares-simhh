@@ -5,6 +5,8 @@ import { render } from 'astro:content'
 import PageLayout from '@/layouts/PageLayout.astro'
 import Markdown from '@/components/atomic/Markdown.astro'
 import PostMeta from '@/components/PostMeta.astro'
+import If from '@/components/atomic/If.astro'
+import InputPassword from '@/components/widget/InputPassword.astro'
 
 export const getStaticPaths = async () =>
   posts.map((post) => ({
@@ -24,10 +26,28 @@ const { Content, headings } = await render(post)
     <PostMeta post={post}/>
   </div>
   <div class="mx2">
-      <Markdown>
-        <article>
-          <Content />
-        </article>
-      </Markdown>
+    <Markdown>
+      <If condition={!post.data.password}>
+        <article><Content /></article>
+      </If>
+      <If condition={post.data.password}>
+        <InputPassword id="encrypt-password" placeholder={post.data.encrypt.placeholder}/>
+        <article data-encrypt={JSON.stringify(post.data.encrypt)}>{post.data.encrypt.description}</article>
+        <script>
+          import { decrypt } from '@/utils/crypt-aes256cbc'
+          document.addEventListener("DOMContentLoaded",() => {
+            const article = document.querySelector<HTMLElement>("article[data-encrypt]")!
+            const { encryptedPostBody, keySaltHex, ivSaltHex } = JSON.parse(article.dataset.encrypt!)
+            document.getElementById("encrypt-password")!.addEventListener("submit", e => {
+              const passwordEl = (e.target! as HTMLInputElement& { wrong:Function, distroy:Function })
+              const decrypted = decrypt(passwordEl.value, encryptedPostBody!, keySaltHex!, ivSaltHex!)
+              if (!decrypted) return passwordEl.wrong()
+              passwordEl.distroy()
+              article.innerHTML = decrypted
+            })
+          })
+        </script>
+      </If>
+    </Markdown>
   </div>
 </PageLayout>

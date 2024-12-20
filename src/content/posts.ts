@@ -1,9 +1,9 @@
 import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import getReadingTime from 'reading-time';
 import moment from 'moment';
 import fs from 'fs'
-import { markdown2html } from '@/utils/markdown';
+import * as ase256cbc from '@/utils/crypt-aes256cbc'
 
 type Post = CollectionEntry<'posts'> & { data: PostData }
 type PostData = CollectionEntry<'posts'>['data'] & PostDataExtra
@@ -14,7 +14,12 @@ type PostDataExtra = {
   updatedDateFormatString: string,
   readingTimeWords: number,
   readingTimeHumanizeText: string,
-  categoriesItems: { depth: number; name: string; path: string; } []
+  categoriesItems: { depth: number; name: string; path: string; } [],
+  encrypt: {
+    encryptedPostBody: string,
+    keySaltHex: string,
+    ivSaltHex: string,
+  }
 }
 
 const sort = (posts: Post[]) => posts.sort(({data:a}, {data:b}) => {
@@ -33,7 +38,6 @@ const sort = (posts: Post[]) => posts.sort(({data:a}, {data:b}) => {
     return b.publishDate!.valueOf() - a.publishDate!.valueOf();
   }
 })
-
 
 const posts = sort(await Promise.all((await getCollection("posts") as Post[]).map(async post => {
 
@@ -56,8 +60,13 @@ const posts = sort(await Promise.all((await getCollection("posts") as Post[]).ma
     return result;
   }, [] as PostDataExtra['categoriesItems']);
 
-  post.data.description = await markdown2html(post.data.description)
-
+  if (post.data.password) {
+    const { password, encrypt } = post.data
+    const renderedPostBody = await render(post).then(_=>post.rendered?.html || '')
+    const { content: encryptedPostBody, keySaltHex, ivSaltHex } = ase256cbc.encrypt(password, renderedPostBody)
+    Object.assign(encrypt, { encryptedPostBody, keySaltHex, ivSaltHex })
+  }
+  
   return post
 })))
 

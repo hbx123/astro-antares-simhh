@@ -18,6 +18,10 @@ const DEFAULT_FRONTMATTER = {
   titleColor: '#4c4948|#c9c9d7',
   description: '暂无描述.',
   categories: ['未分类'],
+  encrypt: {
+    description: '这是一篇被加密的文章哟',
+    placeholder: '输入密码'
+  }
 }
 const ASIDE_CARDS = {
   info: {

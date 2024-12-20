@@ -16,6 +16,7 @@ textarea,
 pre code,
 pre code *,
 input[type=text],
+input[type=password],
 .cursor-text {
   cursor: var(--cursor-text), text;
 }
