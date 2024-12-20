@@ -9,7 +9,6 @@ pluginFramesTexts.addLocale('zh-CN',{
   copyButtonCopied: '复制成功!'
 })
 
-
 export default defineEcConfig({
   defaultLocale: 'zh-CN',
   plugins: [ pluginLineNumbers(), pluginCollapsibleSections()],
