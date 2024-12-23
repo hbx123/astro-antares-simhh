@@ -12,9 +12,11 @@
 }
 
 p,
+span,
 textarea,
 pre code,
 pre code *,
+:not(pre) > code,
 input[type=text],
 input[type=password],
 .cursor-text {

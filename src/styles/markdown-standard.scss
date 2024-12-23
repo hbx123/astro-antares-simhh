@@ -1,26 +1,14 @@
-.dark .markdown-standard {
-  --table-border-color: #151515;
-  --table-thead-bg-color: #1a1a1a;
-  --kbd-bg-color: #1c1c1c;
-  --kbd-border-color: #3f3d3d;
-  --mark-color: #eee;
-  --mark-bg-color: #676738;
-  --blockquote-color: unset;
-  --simple-code-color: #2c2c2c;
-}
-
 .markdown-standard {
-  --table-border-color: #eee;
-  --table-thead-bg-color: #f5f6f8;
-  --kbd-bg-color: #f2f2f2;
-  --kbd-border-color: #d8d0d0;
-  --mark-color: #000;
-  --mark-bg-color: #f0f070;
-  --blockquote-color: #6a737d;
-  --simple-code-color: #1b1f230d;
-
   font-size: 14px;
-  line-height: 2;
+  line-height: 2.4;
+  & {
+    --table-border-color: #ccc;
+    --table-thead-bg-color: #f5f6f8;
+  }
+  .dark & {
+    --table-border-color: #333;
+    --table-thead-bg-color: #1a1a1a;
+  }
   h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
   }
@@ -63,14 +51,20 @@
     padding: 12px 15px;
     border-left: 3px solid #49b1f5;
     background-color: rgba(73,177,245,0.1);
-    color: var(--blockquote-color);
+    color: #6a737d;
+    .dark & {
+      color: unset;
+    }
   }
 
   :not(pre)>code {
     margin: 0 3px;
     padding: 2px 4px;
     color: #f47466;
-    background: var(--simple-code-color);
+    background: #1b1f230d;
+    .dark & {
+      background: #2c2c2c;
+    }
   }
 
   sup {
@@ -97,6 +91,7 @@
     border-spacing: 0;
     border-radius: var(--table-border-radius);
     overflow: hidden;
+    border: var(--table-border-color);
     box-shadow: 0 0 0 1px var(--table-border-color);
     thead {
       background: var(--table-thead-bg-color);
@@ -148,13 +143,17 @@
     align-items: center;
     justify-content: center;
     border-radius: .5em;
-    border: solid 1px var(--kbd-border-color);
+    border: solid 1px #d8d0d0;
     border-bottom-width: 2px;
-    background-color: var(--kbd-bg-color);
+    background-color: #f2f2f2;
     padding: 0 .5em;
     min-height: 2.2em;
     min-width: 2.2em;
     font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Vazirmatn,Courier New,monospace;
+    .dark & {
+      border: solid 1px #3f3d3d;
+      background-color: #1c1c1c;
+    }
   }
 
   mark {
@@ -162,8 +161,12 @@
     align-items: center;
     justify-content: center;
     padding: 0 .5em;
-    color: var(--mark-color);
-    background: var(--mark-bg-color);
+    color: #000;
+    background: #f0f070;
+    .dark & {
+      color: #eee;
+      background: #676738;
+    }
   }
 
   a[href] {
@@ -175,9 +178,13 @@
   }
 
   pre {
+    line-height: 2;
     height: max-content;
     overflow-x: auto;
-    background: #1a1a1a;
+    background: #F6F6F6;
+    .dark & {
+      background: #1a1a1a;
+    }
     & > code {
       display: block;
       padding: 1rem;
