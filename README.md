@@ -80,4 +80,6 @@
   | tags        | `['Astro', 'TagD']`                    | 可选     | 标签                            |
   | categories  | `['Astro', 'Demo']`                    | 可选     | 分类                            |
   | description | `'暂无描述.'`                           | 可选     | 文章描述                        |
-  | **top**         | `1`                                | 可选     | 置顶 (数字越大越靠前)            |
+  | **top**     | `1`                                     | 可选     | 置顶 (数字越大越靠前)            |
+  | **password**| `123456`                                | 可选     | 为文章设置密码                   |
+  | **bodyJoin**| `./README.md`                            | 可选     | 提供文件路径 拼接另一个markdown文档 |
