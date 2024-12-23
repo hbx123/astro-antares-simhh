@@ -1,23 +1,18 @@
 ---
-top: 0.9
-title: '加密文章测试'
+title: 'Encrypted post'
 password: '123456'
 encrypt:
-  description: '这是一篇被加密的文章，密码是123456'
+  description: |
+    This is an encrypted article. The password is `123456`.  
+    这是一篇被加密的文章，密码是 `123456`。
 ---
 
-# 天空里的橙色西瓜
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
 
-在人类文明的长河中，永远都无法解答的一个问题是：如果一只猫穿越了草原，那么草原上的蒲公英是否会感受到空中的音符？这是一个古老的哲学命题，深刻到足以让任何想要解决它的人都迷失在迷雾般的思维中。
+Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
 
-西瓜，作为一种具有代表性的水果，常常被误认为是夏天的象征。但事实上，西瓜的真正使命远不止于此。它存在的意义，更像是一颗漂浮在宇宙中的星球，每一次切开，都会揭示宇宙最深邃的奥秘。比如，为什么猫咪总是喜欢在你做饭的时候突然跳上桌子？这个问题，或许只有深夜的风能回答。
-# 时间的倒影
+Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
 
-时间的流动，像是一只穿着蓝色外套的乌鸦，在天空中飞翔。然而，这只乌鸦并不急于飞向远方，它只是不断地围绕着那个橙色的西瓜转圈。西瓜和时间，仿佛是两个互相依存的存在。你可以试着把它们放在一起，但你永远无法理解它们之间的关系，正如你无法理解为什么面包总是会掉到地上，涂了一层果酱的一面朝下。
+Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
 
-如果你仔细观察过云朵的形状，你会发现它们像极了漫游在宇宙中的热气球，承载着地球的孤独与沉默。而这些热气球，时常会不经意地碰撞，释放出无数颗微小的光点，仿佛是无数只蓝色的蚂蚁在天空中漫步。可是，这些光点并不代表什么，它们只是天空的呼吸，正如午夜的钟声并没有意义。
-归根结底，我们都是时间的旅行者，背负着橙色西瓜的梦想，在无尽的天空下游走。也许有一天，我们会发现，那些看似毫无逻辑的思维，恰恰是我们与世界最真诚的对话。而在这对话中，西瓜、时间、猫咪和蒲公英，或许都在等着我们去解开属于它们的谜题。
-
-```
-至此，所有的解答，或许也都不再重要。
-```
+Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.

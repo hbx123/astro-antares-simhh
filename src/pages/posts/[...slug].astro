@@ -32,7 +32,7 @@ const { Content, headings } = await render(post)
       </If>
       <If condition={post.data.password}>
         <InputPassword id="encrypt-password" placeholder={post.data.encrypt.placeholder}/>
-        <article data-encrypt={JSON.stringify(post.data.encrypt)}>{post.data.encrypt.description}</article>
+        <article data-encrypt={JSON.stringify(post.data.encrypt)}><Markdown render set:html={post.data.encrypt.description}/></article>
         <script>
           import { decrypt } from '@/utils/crypt-aes256cbc'
           document.addEventListener("DOMContentLoaded",() => {
