@@ -1,5 +1,7 @@
 ---
 title: 'Encrypted post'
+tags: [ 'Demo', 'Encrypted' ]
+categories: [ 'Astro', 'Demo' ]
 password: '123456'
 encrypt:
   description: |

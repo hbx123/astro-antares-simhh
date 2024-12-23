@@ -1,8 +1,8 @@
 ---
 title: 'First post'
 publishDate: 'Jul 08 2022'
-tags: [ Astro, 'TagA' ]
-categories: [ 'Category1', 'Category1.1' ]
+tags: [ 'Demo' ]
+categories: [ 'Astro', 'Demo' ]
 description: 'Lorem ipsum dolor sit amet'
 ---
 

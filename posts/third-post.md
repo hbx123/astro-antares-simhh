@@ -1,7 +1,7 @@
 ---
 title: 'Third post'
-tags: [ Astro, 'TagC' ]
 publishDate: 'Jul 22 2022'
+tags: [ 'Demo' ]
 categories: [ 'Astro', 'Demo' ]
 description: 'Lorem ipsum dolor sit amet'
 ---
