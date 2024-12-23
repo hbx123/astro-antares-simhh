@@ -1,5 +1,4 @@
 ---
-top: 1
 title: 'Markdown Style Guide'
 titleIcon: 'asset:markdown'
 titleColor: '#20B2AA,#aaa'
@@ -8,6 +7,7 @@ categories: [ 'Astro', 'Demo' ]
 description: |
   Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.  
   这里是在 Astro 中编写 Markdown 内容时可以使用的一些基本 Markdown 语法示例。
+top: 1
 ---
 
 Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
