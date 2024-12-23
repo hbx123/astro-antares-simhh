@@ -1,6 +1,6 @@
 # Antares
 
-基于Astro的博客模板
+基于Astro的博客模板 | <a href="https://antares.coderxi.com">在线Demo</a>
 
 ## 💻 Installation
 
