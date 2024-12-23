@@ -18,7 +18,8 @@ const posts = defineCollection({
     encrypt: z.object({
       description: z.string().default(d.encrypt.description),
       placeholder: z.string().default(d.encrypt.placeholder),
-    }).default({})
+    }).default({}),
+    bodyJoin: z.string().array().optional()
   }),
 })
 

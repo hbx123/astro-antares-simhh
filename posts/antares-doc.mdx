@@ -8,9 +8,5 @@ description: |
   Learn why Antares and how to get start.  
   为什么是Antares以及如何开始。
 top: 2
+bodyJoin: [ './README.md' ]
 ---
-
-import { readFileSync } from '@/utils'
-import Markdown from '@/components/atomic/Markdown.astro'
-
-<Markdown render set:html={readFileSync('./README.md')}/>

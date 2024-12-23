@@ -28,7 +28,7 @@ const { Content, headings } = await render(post)
   <div class="mx2">
     <Markdown>
       <If condition={!post.data.password}>
-        <article><Content /></article>
+        <article><Content /><Fragment set:html={post.data.bodyJoinHtml}></article>
       </If>
       <If condition={post.data.password}>
         <InputPassword id="encrypt-password" placeholder={post.data.encrypt.placeholder}/>

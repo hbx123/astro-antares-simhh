@@ -4,6 +4,8 @@ import getReadingTime from 'reading-time';
 import moment from 'moment';
 import fs from 'fs'
 import * as ase256cbc from '@/utils/crypt-aes256cbc'
+import { readFileSync } from '@/utils';
+import { markdown2html } from '@/utils/markdown';
 
 type Post = CollectionEntry<'posts'> & { data: PostData }
 type PostData = CollectionEntry<'posts'>['data'] & PostDataExtra
@@ -19,7 +21,8 @@ type PostDataExtra = {
     encryptedPostBody: string,
     keySaltHex: string,
     ivSaltHex: string,
-  }
+  },
+  bodyJoinHtml?: string
 }
 
 const sort = (posts: Post[]) => posts.sort(({data:a}, {data:b}) => {
@@ -40,7 +43,7 @@ const sort = (posts: Post[]) => posts.sort(({data:a}, {data:b}) => {
 })
 
 const posts = sort(await Promise.all((await getCollection("posts") as Post[]).map(async post => {
-
+  
   const fileStat = await fs.promises.stat(post.filePath!)
   post.data.publishDate = post.data.publishDate || fileStat.birthtime
   post.data.publishDateISOString = post.data.publishDate!.toISOString()
@@ -66,6 +69,7 @@ const posts = sort(await Promise.all((await getCollection("posts") as Post[]).ma
     const { content: encryptedPostBody, keySaltHex, ivSaltHex } = ase256cbc.encrypt(password, renderedPostBody)
     Object.assign(encrypt, { encryptedPostBody, keySaltHex, ivSaltHex })
   }
+  post.data.bodyJoinHtml = post.data.bodyJoin ? (await Promise.all(post.data.bodyJoin.map(readFileSync).map(async content => markdown2html(content)))).join('\n') : ''
   
   return post
 })))
