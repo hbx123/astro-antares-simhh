@@ -43,6 +43,7 @@ const sort = (posts: Post[]) => posts.sort(({data:a}, {data:b}) => {
 })
 
 const posts = sort(await Promise.all((await getCollection("posts") as Post[]).map(async post => {
+  post.data.bodyJoinHtml = post.data.bodyJoin ? (await Promise.all(post.data.bodyJoin.map(readFileSync).map(async content => markdown2html(content)))).join('\n') : ''
   
   const fileStat = await fs.promises.stat(post.filePath!)
   post.data.publishDate = post.data.publishDate || fileStat.birthtime
@@ -52,7 +53,7 @@ const posts = sort(await Promise.all((await getCollection("posts") as Post[]).ma
   post.data.updatedDateISOString = post.data.updatedDate!.toISOString()
   post.data.updatedDateFormatString = moment(post.data.updatedDate!).format('yyyy-MM-DD')
 
-  const readingTime = getReadingTime(post.body||'')
+  const readingTime = getReadingTime((post.body||'')+ post.data.bodyJoinHtml)
   post.data.readingTimeWords = readingTime.words
   post.data.readingTimeHumanizeText = moment.duration(readingTime.time * 1.2).humanize();
 
@@ -69,7 +70,6 @@ const posts = sort(await Promise.all((await getCollection("posts") as Post[]).ma
     const { content: encryptedPostBody, keySaltHex, ivSaltHex } = ase256cbc.encrypt(password, renderedPostBody)
     Object.assign(encrypt, { encryptedPostBody, keySaltHex, ivSaltHex })
   }
-  post.data.bodyJoinHtml = post.data.bodyJoin ? (await Promise.all(post.data.bodyJoin.map(readFileSync).map(async content => markdown2html(content)))).join('\n') : ''
   
   return post
 })))
