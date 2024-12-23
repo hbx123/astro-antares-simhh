@@ -173,4 +173,20 @@
       border-bottom: dotted var(--colors-gradientBlue-middle) 1px;
     }
   }
+
+  pre {
+    height: max-content;
+    overflow-x: auto;
+    background: #1a1a1a;
+    & > code {
+      display: block;
+      padding: 1rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      border: 4px solid transparent;
+      background-clip: content-box;
+      border-radius: 10px;
+    }
+  }
+
 }
