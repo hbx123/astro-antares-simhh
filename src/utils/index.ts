@@ -1,4 +1,11 @@
+import fs from 'fs';
+import path from 'path';
 import { DEFAULT_FRONTMATTER } from '@/config'
+
+export const readFileSync = (filePath: string) => {
+  const _filePath = path.resolve(filePath);
+  return fs.readFileSync(_filePath, 'utf-8');
+}
 
 export const titleColor2gcTextstyleVars = (titleColor?: string) => {
   if (!titleColor) titleColor = DEFAULT_FRONTMATTER.titleColor
