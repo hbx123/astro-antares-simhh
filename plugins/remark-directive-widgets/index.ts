@@ -5,8 +5,8 @@ import { visit } from 'unist-util-visit'
 
 const remarkDirectiveWidgets: RemarkPlugin = () => (tree, _) => {
   visit(tree, (node) => {
-    const data = node.data || (node.data = {})
     if (node.type !== 'containerDirective' && node.type !== 'leafDirective' && node.type !== 'textDirective') return
+    const data = node.data || (node.data = {})
     const attr = node.attributes || (node.attributes = {})
 
     if (node.name === "note") {
