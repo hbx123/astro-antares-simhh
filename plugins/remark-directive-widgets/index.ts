@@ -1,8 +1,7 @@
 /// <reference types="mdast-util-to-hast" />
 /// <reference types="mdast-util-directive" />
-import type { RemarkPlugin } from '.'
+import type { RemarkPlugin } from '@astrojs/markdown-remark'
 import { visit } from 'unist-util-visit'
-import remarkDirective from 'remark-directive'
 
 const remarkDirectiveWidgets: RemarkPlugin = () => (tree, _) => {
   visit(tree, (node) => {
@@ -25,7 +24,4 @@ const remarkDirectiveWidgets: RemarkPlugin = () => (tree, _) => {
   })
 }
 
-export default [
-  remarkDirective,
-  remarkDirectiveWidgets
-]
+export default remarkDirectiveWidgets
