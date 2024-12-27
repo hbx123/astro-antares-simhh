@@ -1,7 +1,6 @@
-import { importRaw } from '../utils';
 import type { RehypePlugin } from '@astrojs/markdown-remark'
 import { visit } from 'unist-util-visit'
-const imageLazyLoadJsTxt = importRaw('plugins/rehype-image-lazyload/image-lazyload.js.txt')
+import imageLazyload from './image-lazyload';
 
 const rehypeImageLazyLoad: RehypePlugin = () => {
   return (tree) => {
@@ -18,7 +17,7 @@ const rehypeImageLazyLoad: RehypePlugin = () => {
       type: 'element',
       tagName: 'script',
       properties: { type: 'text/javascript' },
-      children: [{ type: 'text', value: imageLazyLoadJsTxt }],
+      children: [{ type: 'text', value: `(${imageLazyload.toString()})();` }],
     })
   }
 }
