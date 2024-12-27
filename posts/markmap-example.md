@@ -5,7 +5,13 @@ categories: [ 'Astro', 'Demo' ]
 description: markmap
 ---
 
-````md markmap height=400px depth=5
+````markmap height=600px
+---
+title: markmap
+markmap:
+  colorFreezeLevel: 2
+---
+
 ## Links
 
 - [Website](https://markmap.js.org/)
@@ -24,11 +30,14 @@ Note that if blocks and lists appear at the same level, the lists will be ignore
 ### Lists
 
 - **strong** ~~del~~ *italic* ==highlight==
-- \`inline code\`
+- `inline code`
 - [x] checkbox
 - Katex: $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$ <!-- markmap: fold -->
   - [More Katex Examples](#?d=gist:af76a4c245b302206b16aec503dbe07b:katex.md)
-- Now we can wrap very very very very long text based on \`maxWidth\` option
+- Now we can wrap very very very very long text based on `maxWidth` option
+- Ordered list
+  1. item 1
+  2. item 2
 
 ### Blocks
 
@@ -41,5 +50,5 @@ console.log('hello, JavaScript')
 | Apple | 4 |
 | Banana | 2 |
 
-![](/icons/markmap.png)
+![](https://markmap.js.org/favicon.png)
 ````

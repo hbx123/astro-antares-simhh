@@ -29,12 +29,6 @@ importers:
       crypto-js:
         specifier: ^4.2.0
         version: 4.2.0
-      markmap-common:
-        specifier: ^0.18.0
-        version: 0.18.0
-      markmap-lib:
-        specifier: ^0.18.3
-        version: 0.18.3(markmap-common@0.18.0)
       typed.js:
         specifier: ^2.1.0
         version: 2.1.0
@@ -72,6 +66,18 @@ importers:
       feed:
         specifier: ^4.2.2
         version: 4.2.2
+      markmap-common:
+        specifier: ^0.18.0
+        version: 0.18.0
+      markmap-lib:
+        specifier: ^0.18.3
+        version: 0.18.3(markmap-common@0.18.0)
+      markmap-toolbar:
+        specifier: ^0.18.3
+        version: 0.18.3(markmap-common@0.18.0)
+      markmap-view:
+        specifier: ^0.18.3
+        version: 0.18.3(markmap-common@0.18.0)
       mdast-util-directive:
         specifier: ^3.0.0
         version: 3.0.0
@@ -1742,8 +1748,8 @@ packages:
   hastscript@9.0.0:
     resolution: {integrity: sha512-jzaLBGavEDKHrc5EfFImKN7nZKKBdSLIdGvCwDZ9TfzbF2ffXiov8CKE445L2Z1Ek2t/m4SKQ2j6Ipv7NyUolw==}
 
-  highlight.js@11.11.0:
-    resolution: {integrity: sha512-6ErL7JlGu2CNFHyRQEuDogOyGPNiqcuWdt4iSSFUPyferNTGlNTPFqeV36Y/XwA4V/TJ8l0sxp6FTnxud/mf8g==}
+  highlight.js@11.11.1:
+    resolution: {integrity: sha512-Xwwo44whKBVCYoliBQwaPvtd/2tYFkRQtXDWj1nackaV2JPXx3L0+Jvd8/qCJ2p+ML0/XVkJ2q+Mr+UVdpJK5w==}
     engines: {node: '>=12.0.0'}
 
   html-escaper@3.0.3:
@@ -1958,6 +1964,11 @@ packages:
 
   markmap-lib@0.18.3:
     resolution: {integrity: sha512-bqbslGjJY352jF7lW/TwNIKt3BYABKpaeyx/Ks8ay5KP8y74MgRCcn9fFzVn7JEHmA4tyqMyXj2jGHOY7kbmkQ==}
+    peerDependencies:
+      markmap-common: '*'
+
+  markmap-toolbar@0.18.3:
+    resolution: {integrity: sha512-eWgrPjGqJAbb98zOBEEBmYvnskYkrj/YkQJhc14eGLmK3lfUgtfw7NQGXPzuVXqAUwKFTSL/8/MFR2miRTd5Cw==}
     peerDependencies:
       markmap-common: '*'
 
@@ -4933,7 +4944,7 @@ snapshots:
       property-information: 6.5.0
       space-separated-tokens: 2.0.2
 
-  highlight.js@11.11.0: {}
+  highlight.js@11.11.1: {}
 
   html-escaper@3.0.3: {}
 
@@ -5151,7 +5162,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.26.0
       '@vscode/markdown-it-katex': 1.1.1
-      highlight.js: 11.11.0
+      highlight.js: 11.11.1
       katex: 0.16.18
       markdown-it: 14.1.0
       markdown-it-ins: 4.0.0
@@ -5163,6 +5174,12 @@ snapshots:
       markmap-view: 0.18.3(markmap-common@0.18.0)
       prismjs: 1.29.0
       yaml: 2.6.1
+
+  markmap-toolbar@0.18.3(markmap-common@0.18.0):
+    dependencies:
+      '@babel/runtime': 7.26.0
+      '@gera2ld/jsx-dom': 2.2.2
+      markmap-common: 0.18.0
 
   markmap-view@0.18.3(markmap-common@0.18.0):
     dependencies:
