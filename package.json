@@ -29,6 +29,7 @@
     "astro-icon": "1.1.5",
     "badge-maker": "^4.1.0",
     "feed": "^4.2.2",
+    "gray-matter": "^4.0.3",
     "markmap-common": "^0.18.0",
     "markmap-lib": "^0.18.3",
     "markmap-toolbar": "^0.18.3",

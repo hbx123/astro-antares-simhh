@@ -1,5 +1,5 @@
 export default function () {
-  const { Markmap, Toolbar } = window.markmap
+  const { Markmap, Toolbar, deriveOptions } = window.markmap
   const resize = {
     event: new Event('resize'),
     observer: new ResizeObserver((entries) =>
@@ -29,12 +29,12 @@ export default function () {
   }
   
   document.querySelectorAll('.markmap-wrap').forEach((wrap) => {
-    const root = JSON.parse(wrap.firstElementChild.innerHTML)
+    const [ root, jsonOptions ] = [].slice.call(wrap.children).map(el => JSON.parse(el.innerHTML))
     wrap.innerHTML = '<svg></svg>'
     const svg = wrap.querySelector('svg')
-    const markmapInstance = Markmap.create(svg, null, root)
-    resize.observe(wrap, debounce(markmapInstance.fit, 100))
+    const markmapInstance = Markmap.create(svg, deriveOptions(jsonOptions), root)
     wrap.append(toobar(markmapInstance))
+    resize.observe(wrap, debounce(()=>markmapInstance.fit(), 100))
   })
   
 }

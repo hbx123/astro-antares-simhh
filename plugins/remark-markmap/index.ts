@@ -1,46 +1,53 @@
 import type { RemarkPlugin } from '@astrojs/markdown-remark'
 import { visit } from 'unist-util-visit'
 import { persistCSS, persistJS } from 'markmap-common'
-import { Transformer } from 'markmap-lib';
+import { Transformer, type IMarkmapJSONOptions } from 'markmap-lib';
 import markmapInit from './markmap-init';
+import matter from 'gray-matter';
 
 const transformer = new Transformer();
 
 const remarkMarkmap: RemarkPlugin = () => (tree, _) => {
+  
   let markmapCount = 0
-  let assetsHtmls: string[] = []
+  const assetsHtmlsSet = new Set<string>()
+
   visit(tree, ['code'], (node, index, parent) => {
     if (!(node.type === 'code' && node.lang === 'markmap' )) return
     
     // Get params
-    const markmapText = node.value
-    const paramsText = node.meta || ''
-    const paramsObject = Object.fromEntries(paramsText.split(/\s+/).map((s) => s.split('=', 2)))
-    const params = {
-      height: paramsObject['height'] as string,
-      width: paramsObject['width'] as string,
-    }
-
+    const { data: frontmatter, content } = matter(node.value);
+    const { id, style, jsonOptions } = Object.assign({...frontmatter},{
+      id: frontmatter['id'] ?? Date.now().toString(36) + Math.floor(Math.random() * 10000).toString(36),
+      jsonOptions: frontmatter['options'] as IMarkmapJSONOptions
+    })
+    
     // Render
-    const { root, features } = transformer.transform(markmapText);
+    const { root, features } = transformer.transform(content);
     const { styles=[], scripts=[] } = transformer.getUsedAssets(features)
-    const context = {
-      getMarkmap: () => window.markmap,
-      root,
-    }
-    assetsHtmls.push(
-      ...persistCSS(styles),
-      ...persistJS(scripts, context)
-    )
+    
+    const wrapHtml = `
+      <div class="markmap-wrap" id="${id}">
+        <script type="application/json">${JSON.stringify(root)}</script>
+        <script type="application/json">${JSON.stringify(jsonOptions)}</script>
+      </div>
+    `
+    const assetsHtmls = [
+      ...persistCSS([
+        { type: 'style', data: `#${id}{height:500px;width:100%}` },
+        { type: 'style', data: template(style,{id}) },
+        ...styles
+      ]),
+      ...persistJS(scripts, {
+        getMarkmap: () => window.markmap,
+        root,
+      })
+    ]
 
     // Replace node
-    parent!.children.splice(index!, 1, {
-      type: 'html',
-      value: `<div class="markmap-wrap" style="height:${params.height??'400px'};width:${params.width??'100%'}">` +
-                `<script type="application/json">${JSON.stringify(root)}</script>` +
-              `</div>`,
-    })
-
+    parent!.children.splice(index!, 1, { type: 'html', value: wrapHtml.trim() })
+    // Save assetsHtmls
+    assetsHtmls.forEach(html => assetsHtmlsSet.add(html))
     // Count Increment
     markmapCount++
   })
@@ -51,10 +58,17 @@ const remarkMarkmap: RemarkPlugin = () => (tree, _) => {
       `<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>`,
       `<script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>`,
       `<script src="https://cdn.jsdelivr.net/npm/markmap-toolbar"></script>`,
-      ...new Set(assetsHtmls),
+      ...assetsHtmlsSet,
       `<style>.markmap-wrap{position:relative;}.markmap-wrap>svg{width:100%;height:100%;}</style>`,
       `<script>(${markmapInit.toString()})();</script>`,
     ].join('')
   })
 }
+
+function template(template: string, props?: {}) {
+  return !props
+   ? template
+   : new Function(...Object.keys(props), `return \`${template}\`;`)(...Object.values(props))
+}
+
 export default remarkMarkmap

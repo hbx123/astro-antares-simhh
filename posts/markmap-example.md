@@ -5,10 +5,20 @@ categories: [ 'Astro', 'Demo' ]
 description: markmap
 ---
 
-````markmap height=600px
+````markmap
 ---
 title: markmap
-markmap:
+style: |
+  #${id} {
+    height: 300px;
+    width: 100%;
+  }
+  @media (min-width: 1280px) {
+    #${id} {
+      height: 600px;
+    }
+  }
+options:
   colorFreezeLevel: 2
 ---
 
