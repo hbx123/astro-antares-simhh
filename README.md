@@ -1,15 +1,28 @@
 # Antares
 
-基于Astro的博客模板 | <a href="https://antares.coderxi.com">在线Demo</a>
+基于Astro的博客模板  
+
+**[Github](https://github.com/coderxi1/astro-antares) | [演示页面](https://antares.coderxi.com)**
 
 ## 💻 Installation
 
 - Git  
   ```
   git clone https://github.com/coderxi1/astro-antares blog
-  cd blog
-  pnpm install
   ```
+- Astro
+  ```
+  pnpm create astro@latest -- --template coderxi1/astro-antares
+  ```
+
+### 💻 Start
+
+- 移动到博客目录下，然后安装依赖并开始开发
+```
+cd [/path/to/]
+pnpm install
+pnpm run dev
+```
 
 ## 🎉 Features
 
