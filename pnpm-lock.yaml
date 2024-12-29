@@ -96,6 +96,9 @@ importers:
       remark-directive:
         specifier: ^3.0.0
         version: 3.0.0
+      remark-markmap:
+        specifier: ^1.0.4
+        version: 1.0.4
       sanitize-html:
         specifier: ^2.14.0
         version: 2.14.0
@@ -2475,6 +2478,9 @@ packages:
 
   remark-gfm@4.0.0:
     resolution: {integrity: sha512-U92vJgBPkbw4Zfu/IiW2oTZLSL3Zpv+uI7My2eq8JxKgqraFdU8YUGicEJCEgSbeaG+QDFqIcwwfMTOEelPxuA==}
+
+  remark-markmap@1.0.4:
+    resolution: {integrity: sha512-ASfUOpZ+DbMrSYAbtSYdWOsHm5tfx7ES7uwVNKv8Vna55e8jySb+XWl3h3HrxXfMSqPMB3vn7rJLR+mcOz8akg==}
 
   remark-mdx@3.1.0:
     resolution: {integrity: sha512-Ngl/H3YXyBV9RcRNdlYsZujAmhsxwzxpDzpDEhFBVAGthS4GDgnctpDjgFl/ULx5UEDzqtW1cyBSNKqYYrqLBA==}
@@ -6030,6 +6036,13 @@ snapshots:
       unified: 11.0.5
     transitivePeerDependencies:
       - supports-color
+
+  remark-markmap@1.0.4:
+    dependencies:
+      gray-matter: 4.0.3
+      markmap-common: 0.18.0
+      markmap-lib: 0.18.3(markmap-common@0.18.0)
+      unist-util-visit: 5.0.0
 
   remark-mdx@3.1.0:
     dependencies:

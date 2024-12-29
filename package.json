@@ -39,6 +39,7 @@
     "moment": "^2.30.1",
     "reading-time": "^1.5.0",
     "remark-directive": "^3.0.0",
+    "remark-markmap": "^1.0.4",
     "sanitize-html": "^2.14.0",
     "sass": "^1.83.0",
     "unist-util-visit": "^5.0.0",
