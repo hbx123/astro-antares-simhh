@@ -17,9 +17,16 @@ interface Props { class?: string }
 <script>
   const themeChangeEvent = new Event('theme');
   document.querySelectorAll<HTMLDivElement>(".theme-icon")!.forEach(el=>el.addEventListener("click", function () {
-    const isDark = document.documentElement.classList.contains("dark");
-    document.documentElement.className = isDark ? "light" : "dark";
-    localStorage.setItem("theme", isDark ? "light" : "dark");
+    const docClassList = document.documentElement.classList;
+    if (docClassList.contains("dark")) {
+      docClassList.remove("dark");
+      docClassList.add("light");
+      localStorage.setItem("theme", "light");
+    } else {
+      docClassList.remove("light");
+      docClassList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
     window.dispatchEvent(themeChangeEvent)
   }));
 </script>
