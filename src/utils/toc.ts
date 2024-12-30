@@ -27,7 +27,7 @@ export const mapNextSameHeadingElement = (titleElements: HTMLHeadingElement[]) =
   }
 
   //处理只有一个h1的情况
-  if (result[0].el.tagName.toLowerCase() == "h1" && !result[0].next) {
+  if (result.length == 1 && result[0].el.tagName.toLowerCase() == "h1" && !result[0].next) {
     result[0].next = result[result.length-1].el
   }
 
