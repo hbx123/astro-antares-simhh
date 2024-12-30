@@ -15,7 +15,7 @@ const posts = page.data
 const pnCurr = page.currentPage, pnLast = page.lastPage
 ---
 
-<BaseLayout asideCards={['CardInfo','CardCategroies','CardTagCloud']}>
+<BaseLayout asideCards={['CardInfo','CardCategroies','CardTagCloud','CardToolbar']}>
   <div class="space-y-5">
     {posts.map((post) => (
       <PostCard {post}/>

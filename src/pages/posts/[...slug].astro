@@ -20,7 +20,7 @@ const { title, titleColor, titleIcon } = post.data
 const { Content, headings } = await render(post)
 ---
 
-<PageLayout {title} {titleColor} {titleIcon} asideCards={[['CardTableOfContents',{title,headings}],'CardRecentPost']}>
+<PageLayout {title} {titleColor} {titleIcon} asideCards={[['CardTableOfContents',{title,headings}],'CardRecentPost','CardToolbar']}>
   <hr>
   <div class="my3">
     <PostMeta post={post}/>
