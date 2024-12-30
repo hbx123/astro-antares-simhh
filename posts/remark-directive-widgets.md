@@ -34,11 +34,11 @@ success blockquote
 :::
 
 :::blockquote{type=warn}
-success blockquote
+warn blockquote
 :::
 
 :::blockquote{type=error}
-success blockquote
+error blockquote
 :::
 
 # btn
