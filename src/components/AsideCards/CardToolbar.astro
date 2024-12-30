@@ -16,7 +16,7 @@ import CardBase from "./CardBase.astro";
     document.querySelector<HTMLButtonElement>('#scroll-to-top')!.addEventListener("click",()=>window.scrollTo({ top: 0, behavior: 'smooth' }))
     document.querySelector<HTMLButtonElement>('#back-to-home')!.addEventListener("click",()=>location.href='/')
     const searchInput = document.querySelector<HTMLInputElement>('#search-input')!
-    const jumpToSearchPage = () => { location.href = '/search?' + searchInput.value }
+    const jumpToSearchPage = () => { location.href = '/search?q=' + searchInput.value }
     searchInput.addEventListener('keyup',(e)=> {if (e.key=='Enter') jumpToSearchPage() })
     document.querySelector<HTMLButtonElement>('#search-btn')!.addEventListener("click",jumpToSearchPage)
   </script>

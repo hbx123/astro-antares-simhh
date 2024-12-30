@@ -10,7 +10,7 @@ import PagefindUI from "astro-pagefind/components/Search";
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const input = document.querySelector<HTMLInputElement>('#search input')!
-    input.value = location.search.slice(1)
+    input.value = new URLSearchParams(location.search).get('q') || ''
     input.dispatchEvent(new Event("input", { bubbles: true }));
   });
 </script>
