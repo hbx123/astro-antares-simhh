@@ -1,5 +1,7 @@
 ---
 title: 'Markmap Example'
+titleIcon: https://markmap.js.org/favicon.png
+titleColor: '#D19028|#F8E71C'
 tags: [ markmap ]
 categories: [ 'Astro', 'Demo' ]
 description: |
