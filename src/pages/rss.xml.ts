@@ -17,7 +17,7 @@ export const GET = async (context: APIContext) => {
         categories: post.data.categories,
         author: SITE_INFO.author,
         link: `/posts/${post.id}/`,
-        content: await markdown2html(post.body!) + post.data.bodyJoinHtml,
+        content: await markdown2html(post.body!,true) + post.data.bodyJoinHtml,
       }))
     ),
   })

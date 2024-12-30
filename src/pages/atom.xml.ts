@@ -29,7 +29,7 @@ export const GET = async (context: APIContext) => {
       title: post.data.title,
       link: BASE_URL + `/posts/${post.id}/`,
       description: post.data.description,
-      content: await markdown2html(post.body!) + post.data.bodyJoinHtml,
+      content: await markdown2html(post.body!,true) + post.data.bodyJoinHtml,
       date: post.data.publishDate!,
     })
   }

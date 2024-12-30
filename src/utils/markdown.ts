@@ -7,7 +7,7 @@ const processor = await createMarkdownProcessor({
   remarkPlugins,
 })
 
-export const markdown2html = async (markdown: string) => {
+export const markdown2html = async (markdown: string, sanitize: boolean = false) => {
   const html = (await processor.render(markdown)).code
-  return sanitizeHtml(html)
+  return sanitize ? sanitizeHtml(html) : html
 }
