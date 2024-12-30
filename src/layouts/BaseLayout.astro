@@ -62,7 +62,7 @@ const {
   </header>
   <main class="wfull flex-1 max-w-screen-xl mx-auto my8 flex max-w[calc(100vw-12px)]">
     <If condition={asideOff}>
-      <div class="wfull animate-move-up">
+      <div class="wfull animate-move-up" data-pagefind-body>
         <slot/>
       </div>
     </If>
@@ -76,7 +76,7 @@ const {
           </slot>
         </div>
       </div>
-      <div class="wfull lg:max-w72% animate-move-up">
+      <div class="wfull lg:max-w72% animate-move-up" data-pagefind-body>
         <slot/>
       </div>
     </If>

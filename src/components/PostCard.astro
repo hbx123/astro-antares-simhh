@@ -12,7 +12,7 @@ interface Props {
 const { post } = Astro.props
 ---
 
-<div class="card p10 pos-relative overflow-hidden">
+<div class="card p10 pos-relative overflow-hidden" data-pagefind-ignore>
   <If condition={post.data.top||post.data.password}>
     <div class="text-2xl pos-absolute top-2 -right-7 rotate-45 b bg-gray-1 shadow-md py1 dark:bg-dark-4 dark:b-dark-1 flex w26 justify-center color-#aaa">
       <If condition={post.data.top}><Icon class="color-#ff7242" name="mdi:pin"/></If>
