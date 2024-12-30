@@ -88,7 +88,6 @@ const categoriesItemsWithPostCount = posts.map(({data})=>data.categoriesItems).f
   return accumulator;
 }, [] as CategoryItemWithPostCount[]).sort((a,b) => a.path.localeCompare(b.path));
 
-
 const categoryItemsWithSubcategories = categoriesItemsWithPostCount.reduce((array, category) => {
   if (category.depth === 1) {
     array.push({ ...category, subcategories: [] });
@@ -105,6 +104,13 @@ const tagsWithPostCount = posts.filter(post=>post.data.tags).map(post=>post.data
   return accumulator;
 }, {} as {[key: string]: number})
 
+const postsStatistics = {
+  count : posts.length,
+  readingTimeWordsSum : posts.reduce((accumulator, post) => accumulator + post.data.readingTimeWords, 0),
+  tagsCount : Object.keys(tagsWithPostCount).length,
+  categoriesCount : new Set(posts.map(({data})=>data.categoriesItems).flat().map(({path})=>path)).size
+}
+
 export default posts
 export {
   sort,
@@ -112,4 +118,5 @@ export {
   type CategoryItemWithSubcategories,
   categoryItemsWithSubcategories,
   tagsWithPostCount,
+  postsStatistics
 }

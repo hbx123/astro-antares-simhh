@@ -6,6 +6,7 @@ import CardTagCloud from './CardTagCloud.astro'
 import CardTableOfContents from './CardTableOfContents.astro'
 import CardMarkdown from './CardMarkdown.astro'
 import CardToolbar from './CardToolbar.astro'
+import CardSiteInfo from './CardSiteInfo.astro'
 type Card = (_props: any) => any
 const cards = {
   CardBase,
@@ -15,7 +16,8 @@ const cards = {
   CardTagCloud,
   CardTableOfContents,
   CardMarkdown,
-  CardToolbar
+  CardToolbar,
+  CardSiteInfo
 }
 type CardName =
   | 'CardBase'
@@ -26,6 +28,7 @@ type CardName =
   | 'CardTableOfContents'
   | 'CardMarkdown'
   | 'CardToolbar'
+  | 'CardSiteInfo'
 
 const getCardByName = (name: string|CardName) => {
   const cardNameAllow = Object.keys(cards)
