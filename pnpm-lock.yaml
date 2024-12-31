@@ -72,18 +72,6 @@ importers:
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
-      markmap-common:
-        specifier: ^0.18.0
-        version: 0.18.0
-      markmap-lib:
-        specifier: ^0.18.3
-        version: 0.18.3(markmap-common@0.18.0)
-      markmap-toolbar:
-        specifier: ^0.18.3
-        version: 0.18.3(markmap-common@0.18.0)
-      markmap-view:
-        specifier: ^0.18.3
-        version: 0.18.3(markmap-common@0.18.0)
       mdast-util-directive:
         specifier: ^3.0.0
         version: 3.0.0
@@ -2022,11 +2010,6 @@ packages:
 
   markmap-lib@0.18.3:
     resolution: {integrity: sha512-bqbslGjJY352jF7lW/TwNIKt3BYABKpaeyx/Ks8ay5KP8y74MgRCcn9fFzVn7JEHmA4tyqMyXj2jGHOY7kbmkQ==}
-    peerDependencies:
-      markmap-common: '*'
-
-  markmap-toolbar@0.18.3:
-    resolution: {integrity: sha512-eWgrPjGqJAbb98zOBEEBmYvnskYkrj/YkQJhc14eGLmK3lfUgtfw7NQGXPzuVXqAUwKFTSL/8/MFR2miRTd5Cw==}
     peerDependencies:
       markmap-common: '*'
 
@@ -5286,12 +5269,6 @@ snapshots:
       markmap-view: 0.18.3(markmap-common@0.18.0)
       prismjs: 1.29.0
       yaml: 2.6.1
-
-  markmap-toolbar@0.18.3(markmap-common@0.18.0):
-    dependencies:
-      '@babel/runtime': 7.26.0
-      '@gera2ld/jsx-dom': 2.2.2
-      markmap-common: 0.18.0
 
   markmap-view@0.18.3(markmap-common@0.18.0):
     dependencies:
