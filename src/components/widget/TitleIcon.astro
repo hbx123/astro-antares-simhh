@@ -11,10 +11,13 @@ const { light, dark } = Astro.props
 {(()=>{
 
 const getIcon = (text:string,defaultColor:string) => {
-  if (text.startsWith("mdi:")||text.startsWith("simple-icons:")) {
+  if (text.startsWith("mdi:")) {
     let [ name, color ] = text.split(',')
     color = color ? color : defaultColor
     return <Icon class="wfull hfull" name={name} style={color?`fill:${color};color:${color};`:''}/>
+  }
+  else if (text.startsWith("skill-icons:")) {
+    return <Icon class="wfull hfull" name={text}/>
   }
   else if (text.startsWith("asset:")) {
     let [ path, color ] = text.slice("asset:".length).split(',')
